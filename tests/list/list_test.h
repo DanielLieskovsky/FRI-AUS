@@ -197,6 +197,14 @@ namespace tests
 		void test() override;
 	};
 
+	class DDLCopyConsturctor :
+		public SimpleTest
+	{
+	public:
+		DDLCopyConsturctor();
+		void test() override;
+	};
+
 	/// <summary>
 	/// Zahrna v sebe vsetky testy, ktore testuju DoubleLinkedList.
 	/// </summary>

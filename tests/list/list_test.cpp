@@ -378,6 +378,7 @@ namespace tests
 		ComplexTest("DoubleLinkedList")
 	{
 		addTest(new DDLCosntructorTest());
+		addTest(new DDLCopyConsturctor());
 	}
 
 	DDLCosntructorTest::DDLCosntructorTest() :
@@ -400,5 +401,30 @@ namespace tests
 
 		delete testDDL;
 
+	}
+
+	DDLCopyConsturctor::DDLCopyConsturctor() :
+		SimpleTest("CopyKonstruktor test")
+	{
+	}
+
+	void DDLCopyConsturctor::test()
+	{
+		structures::DoubleLinkedList<int>* testDDL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDDL->add(i);
+		}
+
+		structures::DoubleLinkedList<int>* copyTestDDL = new structures::DoubleLinkedList<int>(*testDDL);
+
+		SimpleTest::assertTrue(copyTestDDL->at(4) == testDDL->at(4), "Rovnaka hodnota na pozici 4");
+		SimpleTest::assertTrue(copyTestDDL->at(0) == testDDL->at(0), "Rovnaka hodnota na pozici 0");
+		SimpleTest::assertTrue(copyTestDDL->at(copyTestDDL->size() - 1) == testDDL->at(testDDL->size() - 1), "Rovnaka hodnota na poslednej pozici");
+		SimpleTest::assertFalse(copyTestDDL->at(1) == testDDL->at(2), "nerovnake hodnoty na pozcii 1 a 2");
+
+		delete copyTestDDL;
+		delete testDDL;
 	}
 }
