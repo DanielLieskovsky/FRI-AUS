@@ -668,5 +668,6 @@ namespace tests
 		SimpleTest::assertFalse(testDLL->size() == 1, "Po Clear nie je velkost ArrayListu 1");
 
 		delete testDLL;
+
 	}
 }

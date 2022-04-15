@@ -244,11 +244,58 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie pridania na koniec
+	/// </summary>
 	class DLLAdd :
 		public SimpleTest
 	{
 	public:
 		DLLAdd();
+		void test() override;
+	};
+
+	/// <summary>
+	/// testovanie pokusu o odstranenie daneho prvku
+	/// </summary>
+	class DLLTryRemove :
+		public SimpleTest
+	{
+	public:
+		DLLTryRemove();
+		void test() override;
+	};
+
+	/// <summary>
+	/// testovanie odstranenie z danej pozicie
+	/// </summary>
+	class DLLRemoveAt :
+		public SimpleTest
+	{
+	public:
+		DLLRemoveAt();
+		void test() override;
+	};
+
+	/// <summary>
+	/// testovanie indexu urciteho prvku
+	/// </summary>
+	class DLLGetIndexOf :
+		public SimpleTest
+	{
+	public:
+		DLLGetIndexOf();
+		void test() override;
+	};
+
+	/// <summary>
+	/// testovanie vycistenia
+	/// </summary>
+	class DLLClear :
+		public SimpleTest
+	{
+	public:
+		DLLClear();
 		void test() override;
 	};
 
@@ -272,43 +319,14 @@ namespace tests
 		ListTestOverall();
 	};
 
+	/// <summary>
+	/// 
+	/// </summary>
 	class DLLInsert :
 		public SimpleTest
 	{
 	public:
 		DLLInsert();
-		void test() override;
-	};
-
-	class DLLTryRemove :
-		public SimpleTest
-	{
-	public:
-		DLLTryRemove();
-		void test() override;
-	};
-
-	class DLLRemoveAt :
-		public SimpleTest
-	{
-	public:
-		DLLRemoveAt();
-		void test() override;
-	};
-
-	class DLLGetIndexOf :
-		public SimpleTest
-	{
-	public:
-		DLLGetIndexOf();
-		void test() override;
-	};
-
-	class DLLClear :
-		public SimpleTest
-	{
-	public:
-		DLLClear();
 		void test() override;
 	};
 }
