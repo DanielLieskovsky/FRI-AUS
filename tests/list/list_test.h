@@ -271,4 +271,12 @@ namespace tests
 	public:
 		ListTestOverall();
 	};
+
+	class DLLInsert :
+		public SimpleTest
+	{
+	public:
+		DLLInsert();
+		void test() override;
+	};
 }

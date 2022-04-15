@@ -385,6 +385,7 @@ namespace tests
 		addTest(new DLLEquals());
 		addTest(new DLLAt());
 		addTest(new DLLAdd());
+		addTest(new DLLInsert());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -543,6 +544,38 @@ namespace tests
 
 		SimpleTest::assertTrue(testDLL->at(testDLL->size() - 1) == 2, "Na poslednej pozicii je pridany prvok");
 		SimpleTest::assertFalse(testDLL->at(testDLL->size() - 1) == 9, "Na poslednej pozicii sa nenachadza posledny prvok pred pridanim noveho");
+
+		delete testDLL;
+	}
+
+	DLLInsert::DLLInsert() :
+		SimpleTest("Insert test")
+	{
+	}
+
+	void DLLInsert::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i);
+		}
+
+		testDLL->insert(100, 0);
+
+		SimpleTest::assertTrue(testDLL->at(0) == 100, "Na nultu poziciu sa uspesne vlozila 100");
+		SimpleTest::assertFalse(testDLL->at(0) == 0, "Na nultej pozicii nie je stara hodnota (0)");
+
+		testDLL->insert(200, 5);
+
+		SimpleTest::assertTrue(testDLL->at(5) == 200, "Na piatu poziciu sa uspesne vlozila 200");
+		SimpleTest::assertFalse(testDLL->at(5) == 5, "Na piatej pozicii nie je stara hodnota (5)");
+
+		int indexAktualnePoslednejPozicie = testDLL->size() - 1;
+		testDLL->insert(300, indexAktualnePoslednejPozicie);
+		SimpleTest::assertTrue(testDLL->at(indexAktualnePoslednejPozicie) == 300, "Na poslednu poziciu sa uspesne vlozila 300");
+		SimpleTest::assertFalse(testDLL->at(indexAktualnePoslednejPozicie) == 9, "Na poslednej pozicii nie je stara hodnota (9)");
 
 		delete testDLL;
 	}
