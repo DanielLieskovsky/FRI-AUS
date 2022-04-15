@@ -377,16 +377,16 @@ namespace tests
 	DoubleLinkedListOverall::DoubleLinkedListOverall() :
 		ComplexTest("DoubleLinkedList")
 	{
-		addTest(new DDLCosntructorTest());
-		addTest(new DDLCopyConsturctor());
+		addTest(new DLLCosntructorTest());
+		addTest(new DLLCopyConsturctor());
 	}
 
-	DDLCosntructorTest::DDLCosntructorTest() :
+	DLLCosntructorTest::DLLCosntructorTest() :
 		SimpleTest("Konsturktor test")
 	{
 	}
 
-	void DDLCosntructorTest::test()
+	void DLLCosntructorTest::test()
 	{
 		structures::DoubleLinkedList<int>* testDDL = new structures::DoubleLinkedList<int>();
 
@@ -403,12 +403,12 @@ namespace tests
 
 	}
 
-	DDLCopyConsturctor::DDLCopyConsturctor() :
+	DLLCopyConsturctor::DLLCopyConsturctor() :
 		SimpleTest("CopyKonstruktor test")
 	{
 	}
 
-	void DDLCopyConsturctor::test()
+	void DLLCopyConsturctor::test()
 	{
 		structures::DoubleLinkedList<int>* testDDL = new structures::DoubleLinkedList<int>();
 

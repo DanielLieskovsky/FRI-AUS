@@ -189,19 +189,19 @@ namespace tests
 		LinkedListTestOverall();
 	};
 
-	class DDLCosntructorTest :
+	class DLLCosntructorTest :
 		public SimpleTest
 	{
 	public:
-		DDLCosntructorTest();
+		DLLCosntructorTest();
 		void test() override;
 	};
 
-	class DDLCopyConsturctor :
+	class DLLCopyConsturctor :
 		public SimpleTest
 	{
 	public:
-		DDLCopyConsturctor();
+		DLLCopyConsturctor();
 		void test() override;
 	};
 
