@@ -295,4 +295,12 @@ namespace tests
 		DLLRemoveAt();
 		void test() override;
 	};
+
+	class DLLGetIndexOf :
+		public SimpleTest
+	{
+	public:
+		DLLGetIndexOf();
+		void test() override;
+	};
 }

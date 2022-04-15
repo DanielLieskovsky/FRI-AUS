@@ -388,6 +388,7 @@ namespace tests
 		addTest(new DLLInsert());
 		addTest(new DLLTryRemove());
 		addTest(new DLLRemoveAt());
+		addTest(new DLLGetIndexOf());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -620,6 +621,28 @@ namespace tests
 		SimpleTest::assertFalse(testDLL->removeAt(0) == 0, "Odstranilo sa nieco z nultej pozicie co nebolo 0");
 		SimpleTest::assertTrue(testDLL->removeAt(testDLL->size() - 1) == 9, "Odstranila sa 9 z poslednej pozicie");
 		SimpleTest::assertFalse(testDLL->removeAt(testDLL->size() - 1) == 9, "Odstranilo sa nieco z poslednej pozicie co nebolo 9");
+
+		delete testDLL;
+	}
+
+	DLLGetIndexOf::DLLGetIndexOf() :
+		SimpleTest("GetIndexOf test")
+	{
+	}
+
+	void DLLGetIndexOf::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i + 1);
+		}
+
+		SimpleTest::assertTrue(testDLL->getIndexOf(1) == 0, "Hodnota 1 sa nachadza na 0 pozicii");
+		SimpleTest::assertFalse(testDLL->getIndexOf(1) == 1, "Hodnota 1 sa nenachadaza na 1 pozicii");
+		SimpleTest::assertTrue(testDLL->getIndexOf(10) == (testDLL->size() - 1), "Hodnota 9 sa nachadza na poslednej pozicii");
+		SimpleTest::assertFalse(testDLL->getIndexOf(10) == (testDLL->size() - 2), " Hodnota 9 sa nenachadza na predposlednej pozicii");
 
 		delete testDLL;
 	}
