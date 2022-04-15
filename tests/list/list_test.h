@@ -223,6 +223,17 @@ namespace tests
 	};
 
 	/// <summary>
+	/// testovanie zhodnosti DoubleLinkedListov
+	/// </summary>
+	class DLLEquals :
+		public SimpleTest
+	{
+	public:
+		DLLEquals();
+		void test() override;
+	};
+
+	/// <summary>
 	/// Zahrna v sebe vsetky testy, ktore testuju DoubleLinkedList.
 	/// </summary>
 	class DoubleLinkedListOverall

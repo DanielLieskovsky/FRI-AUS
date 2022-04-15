@@ -381,6 +381,8 @@ namespace tests
 	{
 		addTest(new DLLCosntructorTest());
 		addTest(new DLLCopyConsturctor());
+		addTest(new DLLAssign());
+		addTest(new DLLEquals());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -463,5 +465,39 @@ namespace tests
 		delete testDLL1;
 		delete testDLL2;
 		delete testDLL3;
+	}
+
+	DLLEquals::DLLEquals() :
+		SimpleTest("Equals test")
+	{
+	}
+
+	void DLLEquals::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL1 = new structures::DoubleLinkedList<int>();
+		structures::DoubleLinkedList<int>* testDLL2 = new structures::DoubleLinkedList<int>();
+		structures::DoubleLinkedList<int>* testDLL3 = new structures::DoubleLinkedList<int>();
+		structures::DoubleLinkedList<int>* testDLL4 = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL1->add(i);
+			testDLL2->add(i);
+			testDLL4->add(i + 1);
+		}
+
+		for (int i = 0; i < 15; i++)
+		{
+			testDLL3->add(i);
+		}
+
+		SimpleTest::assertTrue(testDLL1->equals(*testDLL2), "Matice rovnakej velkosti a rovnako naplnene sa rovnaju");
+		SimpleTest::assertFalse(testDLL2->equals(*testDLL3), "Matice roznej velkosti sa nerovnaju");
+		SimpleTest::assertFalse(testDLL1->equals(*testDLL4), "Matice rovnakej velkosti a rozne naplnene sa nerovnaju");
+
+		delete testDLL1;
+		delete testDLL2;
+		delete testDLL3;
+		delete testDLL4;
 	}
 }
