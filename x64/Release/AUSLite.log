@@ -1,0 +1,124 @@
+﻿  main_form.cpp
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\gui\main_form.cpp(25,1): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
+  matrix_test.cpp
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(81,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(81,41): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(104,32): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(104,41): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(110,55): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(128,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(128,42): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(129,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(129,42): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(151,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(151,42): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(152,33): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(152,38): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(178,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(178,43): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(201,34): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(201,43): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(207,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(224,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(224,44): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(225,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(225,44): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(246,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(246,44): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(247,35): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(247,40): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(274,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(274,38): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(288,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(358,29): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(358,38): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(372,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(435,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(474,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(523,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(544,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(545,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(565,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(586,52): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(587,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(114,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(105): message : while compiling class template member function 'structures::IncoherentMatrix<int>::IncoherentMatrix(structures::IncoherentMatrix<int> &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(182): message : see reference to function template instantiation 'structures::IncoherentMatrix<int>::IncoherentMatrix(structures::IncoherentMatrix<int> &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(35): message : see reference to class template instantiation 'structures::IncoherentMatrix<int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(100,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(92): message : while compiling class template member function 'structures::IncoherentMatrix<int>::IncoherentMatrix(size_t,size_t)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(35): message : see reference to function template instantiation 'structures::IncoherentMatrix<int>::IncoherentMatrix(size_t,size_t)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(123,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(120): message : while compiling class template member function 'structures::IncoherentMatrix<int>::~IncoherentMatrix(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(124,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(143,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(136): message : while compiling class template member function 'structures::Structure &structures::IncoherentMatrix<int>::assign(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(253): message : see reference to function template instantiation 'structures::Structure &structures::IncoherentMatrix<int>::assign(structures::Structure &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(164,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\incoherent_matrix.h(155): message : while compiling class template member function 'bool structures::IncoherentMatrix<int>::equals(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(184): message : see reference to function template instantiation 'bool structures::IncoherentMatrix<int>::equals(structures::Structure &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\coherent_matrix.h(211,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\coherent_matrix.h(206): message : while compiling class template member function 'int structures::CoherentMatrix<int>::mapFunction(int,int) const'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\coherent_matrix.h(201): message : see reference to function template instantiation 'int structures::CoherentMatrix<int>::mapFunction(int,int) const' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\matrix\coherent_matrix.h(104): message : while compiling class template member function 'structures::CoherentMatrix<int>::CoherentMatrix(structures::CoherentMatrix<int> &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(85): message : see reference to function template instantiation 'structures::CoherentMatrix<int>::CoherentMatrix(structures::CoherentMatrix<int> &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\matrix\matrix_test.cpp(30): message : see reference to class template instantiation 'structures::CoherentMatrix<int>' being compiled
+  Generating Code...
+  csv_log_consumer.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  AUSLite.vcxproj -> C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\DataStructures.exe

@@ -1,0 +1,10 @@
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\AUSLite.gui.main_form.resources
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\AUSLite.vcxproj.GenerateResource.cache
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\debug.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\elapsed.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\error.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\info.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\ok.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\images\warning.png
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\DataStructures.exe
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Release\AUSLite.vcxproj.AssemblyReference.cache
