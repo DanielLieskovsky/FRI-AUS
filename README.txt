@@ -1,1 +1,1 @@
-Solution in C++ that contains code for Algorithms and Data Structures
+Solution in C++ that contains code for Algorithms and Data Structures.
