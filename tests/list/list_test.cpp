@@ -389,6 +389,7 @@ namespace tests
 		addTest(new DLLTryRemove());
 		addTest(new DLLRemoveAt());
 		addTest(new DLLGetIndexOf());
+		addTest(new DLLClear());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -643,6 +644,28 @@ namespace tests
 		SimpleTest::assertFalse(testDLL->getIndexOf(1) == 1, "Hodnota 1 sa nenachadaza na 1 pozicii");
 		SimpleTest::assertTrue(testDLL->getIndexOf(10) == (testDLL->size() - 1), "Hodnota 9 sa nachadza na poslednej pozicii");
 		SimpleTest::assertFalse(testDLL->getIndexOf(10) == (testDLL->size() - 2), " Hodnota 9 sa nenachadza na predposlednej pozicii");
+
+		delete testDLL;
+	}
+
+	DLLClear::DLLClear() :
+		SimpleTest("Clear test")
+	{
+	}
+
+	void DLLClear::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i + 1);
+		}
+
+		testDLL->clear();
+
+		SimpleTest::assertTrue(testDLL->size() == 0, "Po Clear je velkost ArrayListu 0");
+		SimpleTest::assertFalse(testDLL->size() == 1, "Po Clear nie je velkost ArrayListu 1");
 
 		delete testDLL;
 	}

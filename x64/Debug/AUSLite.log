@@ -9,16 +9,16 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(201
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(231,57): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(275,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(276,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(410,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(434,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(434,101): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(525,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(527,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(548,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(549,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(578,58): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(622,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(623,64): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(411,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(435,65): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(435,101): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(526,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(528,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(549,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(550,58): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(579,58): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(623,63): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(624,64): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(199,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(185): message : while compiling class template member function 'bool structures::ArrayList<int>::equals(structures::Structure &)'
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(116): message : see reference to function template instantiation 'bool structures::ArrayList<int>::equals(structures::Structure &)' being compiled
@@ -87,12 +87,12 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linke
           [
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(600): message : see reference to function template instantiation 'bool structures::DoubleLinkedList<int>::tryRemove(const T &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(601): message : see reference to function template instantiation 'bool structures::DoubleLinkedList<int>::tryRemove(const T &)' being compiled
           with
           [
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(401): message : see reference to class template instantiation 'structures::DoubleLinkedList<int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(402): message : see reference to class template instantiation 'structures::DoubleLinkedList<int>' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(339,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(334): message : while compiling class template member function 'void structures::ArrayList<int>::enlarge(void)'
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(232): message : see reference to function template instantiation 'void structures::ArrayList<int>::enlarge(void)' being compiled
@@ -122,7 +122,7 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linke
               T=int
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(249): message : while compiling class template member function 'structures::DoubleLinkedList<int>::DoubleLinkedList(structures::DoubleLinkedList<int> &)'
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(430): message : see reference to function template instantiation 'structures::DoubleLinkedList<int>::DoubleLinkedList(structures::DoubleLinkedList<int> &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(431): message : see reference to function template instantiation 'structures::DoubleLinkedList<int>::DoubleLinkedList(structures::DoubleLinkedList<int> &)' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(527,25): warning C4553: '==': result of expression not used; did you intend '='?
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(526): message : while compiling class template member function 'structures::Iterator<T> &structures::DoubleLinkedList<T>::DoubleLinkedListIterator::operator ++(void)'
           with

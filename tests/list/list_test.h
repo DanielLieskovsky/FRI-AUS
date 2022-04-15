@@ -303,4 +303,12 @@ namespace tests
 		DLLGetIndexOf();
 		void test() override;
 	};
+
+	class DLLClear :
+		public SimpleTest
+	{
+	public:
+		DLLClear();
+		void test() override;
+	};
 }
