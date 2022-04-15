@@ -377,5 +377,28 @@ namespace tests
 	DoubleLinkedListOverall::DoubleLinkedListOverall() :
 		ComplexTest("DoubleLinkedList")
 	{
+		addTest(new DDLCosntructorTest());
+	}
+
+	DDLCosntructorTest::DDLCosntructorTest() :
+		SimpleTest("Konsturktor test")
+	{
+	}
+
+	void DDLCosntructorTest::test()
+	{
+		structures::DoubleLinkedList<int>* testDDL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDDL->add(i);
+		}
+
+		SimpleTest::assertTrue(testDDL->size() == 10, "Velkost 10 je spravna");
+		SimpleTest::assertTrue(testDDL->at(0) == 0, "Prvok 0 je 0 ");
+		SimpleTest::assertTrue(testDDL->at(testDDL->size() - 1) == 9, "Prvok 9 je 9 ");
+
+		delete testDDL;
+
 	}
 }

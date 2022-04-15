@@ -58,6 +58,9 @@ namespace tests
 		ArrayListTestOverall();
 	};
 
+	/// <summary>
+	/// testovanie konstruktora (vytvorenie a spravne priradenie hodnot do struktury)
+	/// </summary>
 	class ALConstructorTest :
 		public SimpleTest 
 	{
@@ -66,6 +69,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie kopirovacieho konstruktora (vytvorenie spravnej kopie podla uz vytvorenej matice)
+	/// </summary>
 	class ALCopyConstrucotr :
 		public SimpleTest
 	{
@@ -74,6 +80,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie priradenia jednej matice do druhej
+	/// </summary>
 	class ALAssign :
 		public SimpleTest
 	{
@@ -82,6 +91,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie zhodnosti matic
+	/// </summary>
 	class ALEquals :
 		public SimpleTest
 	{
@@ -90,6 +102,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie hodnoty na danom indexe
+	/// </summary>
 	class ALAt :
 		public SimpleTest
 	{
@@ -98,6 +113,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie priradenia hodnoty na koniec struktury
+	/// </summary>
 	class ALAdd :
 		public SimpleTest
 	{
@@ -106,6 +124,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie pridania hodnoty na danu poziciu
+	/// </summary>
 	class ALInsert :
 		public SimpleTest
 	{
@@ -114,6 +135,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie vymazania daneho prvku
+	/// </summary>
 	class ALTryRemove :
 		public SimpleTest
 	{
@@ -122,6 +146,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie vymazania z danej pozicie
+	/// </summary>
 	class ALRemoveAt :
 		public SimpleTest
 	{
@@ -130,6 +157,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie vratenia indexu daneho prvku
+	/// </summary>
 	class ALGetIndexOf :
 		public SimpleTest
 	{
@@ -138,6 +168,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie vycistenia celeho ArrayListu
+	/// </summary>
 	class ALClear :
 		public SimpleTest
 	{
@@ -154,6 +187,14 @@ namespace tests
 	{
 	public:
 		LinkedListTestOverall();
+	};
+
+	class DDLCosntructorTest :
+		public SimpleTest
+	{
+	public:
+		DDLCosntructorTest();
+		void test() override;
 	};
 
 	/// <summary>

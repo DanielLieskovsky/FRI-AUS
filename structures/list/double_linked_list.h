@@ -501,7 +501,7 @@ namespace structures
     inline Iterator<T>& DoubleLinkedList<T>::DoubleLinkedListIterator::operator=(Iterator<T>& other)
     {
         if (this != &other) {
-            DoubleLinkedListIterator& otherIterator = dynamic_cast<LinkedListIterator&>(other);
+            DoubleLinkedListIterator& otherIterator = dynamic_cast<DoubleLinkedListIterator&>(other);
             this->position_ = otherIterator.position_;
         }
 

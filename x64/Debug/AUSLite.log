@@ -9,6 +9,7 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(201
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(231,57): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(275,61): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(276,62): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(399,57): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(199,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(185): message : while compiling class template member function 'bool structures::ArrayList<int>::equals(structures::Structure &)'
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(116): message : see reference to function template instantiation 'bool structures::ArrayList<int>::equals(structures::Structure &)' being compiled
@@ -71,6 +72,13 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.
               T=int
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(335): message : see reference to class template instantiation 'structures::LinkedList<int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(377,15): warning C4189: 'result': local variable is initialized but not referenced
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(370): message : while compiling class template member function 'bool structures::DoubleLinkedList<int>::tryRemove(const T &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\list\list_test.cpp(390): message : see reference to class template instantiation 'structures::DoubleLinkedList<int>' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(339,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(334): message : while compiling class template member function 'void structures::ArrayList<int>::enlarge(void)'
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(232): message : see reference to function template instantiation 'void structures::ArrayList<int>::enlarge(void)' being compiled
@@ -84,6 +92,18 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.h(432): message : see reference to class template instantiation 'structures::LinkedList<int>::LinkedListIterator' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.h(431): message : while compiling class template member function 'structures::Iterator<T> *structures::LinkedList<T>::getBeginIterator(void)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(527,25): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(526): message : while compiling class template member function 'structures::Iterator<T> &structures::DoubleLinkedList<T>::DoubleLinkedListIterator::operator ++(void)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(452): message : see reference to class template instantiation 'structures::DoubleLinkedList<int>::DoubleLinkedListIterator' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\double_linked_list.h(451): message : while compiling class template member function 'structures::Iterator<T> *structures::DoubleLinkedList<T>::getBeginIterator(void)'
           with
           [
               T=int
