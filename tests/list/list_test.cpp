@@ -386,6 +386,7 @@ namespace tests
 		addTest(new DLLAt());
 		addTest(new DLLAdd());
 		addTest(new DLLInsert());
+		addTest(new DLLTryRemove());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -576,6 +577,26 @@ namespace tests
 		testDLL->insert(300, indexAktualnePoslednejPozicie);
 		SimpleTest::assertTrue(testDLL->at(indexAktualnePoslednejPozicie) == 300, "Na poslednu poziciu sa uspesne vlozila 300");
 		SimpleTest::assertFalse(testDLL->at(indexAktualnePoslednejPozicie) == 9, "Na poslednej pozicii nie je stara hodnota (9)");
+
+		delete testDLL;
+	}
+
+	DLLTryRemove::DLLTryRemove() :
+		SimpleTest("TryRemove test")
+	{
+	}
+
+	void DLLTryRemove::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i);
+		}
+
+		SimpleTest::assertTrue(testDLL->tryRemove(5), "Hodnota 5 sa nachadza v tabulke cize ju mozno odstranit");
+		SimpleTest::assertFalse(testDLL->tryRemove(200), "Hodnota 200 sa nenachadza v tabulke takze ju nemozno odstranit");
 
 		delete testDLL;
 	}

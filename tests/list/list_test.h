@@ -279,4 +279,12 @@ namespace tests
 		DLLInsert();
 		void test() override;
 	};
+
+	class DLLTryRemove :
+		public SimpleTest
+	{
+	public:
+		DLLTryRemove();
+		void test() override;
+	};
 }
