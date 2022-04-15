@@ -384,6 +384,7 @@ namespace tests
 		addTest(new DLLAssign());
 		addTest(new DLLEquals());
 		addTest(new DLLAt());
+		addTest(new DLLAdd());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -520,6 +521,28 @@ namespace tests
 		SimpleTest::assertTrue(testDLL->at(testDLL->size() - 1) == 10, "Na poslednej poziici je prvok 9");
 		SimpleTest::assertFalse(testDLL->at(1) == 1, "Na prvej pozicii nie je prvok 1");
 		SimpleTest::assertFalse(testDLL->at(testDLL->size() - 1) == 1, "Na poslednej pozici nie je prvok 1");
+
+		delete testDLL;
+	}
+
+	DLLAdd::DLLAdd() :
+		SimpleTest("Add test")
+	{
+	}
+
+	void DLLAdd::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i);
+		}
+
+		testDLL->add(2);
+
+		SimpleTest::assertTrue(testDLL->at(testDLL->size() - 1) == 2, "Na poslednej pozicii je pridany prvok");
+		SimpleTest::assertFalse(testDLL->at(testDLL->size() - 1) == 9, "Na poslednej pozicii sa nenachadza posledny prvok pred pridanim noveho");
 
 		delete testDLL;
 	}

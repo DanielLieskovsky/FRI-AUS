@@ -244,6 +244,14 @@ namespace tests
 		void test() override;
 	};
 
+	class DLLAdd :
+		public SimpleTest
+	{
+	public:
+		DLLAdd();
+		void test() override;
+	};
+
 	/// <summary>
 	/// Zahrna v sebe vsetky testy, ktore testuju DoubleLinkedList.
 	/// </summary>
