@@ -81,7 +81,7 @@ namespace tests
 	};
 
 	/// <summary>
-	/// testovanie priradenia jednej matice do druhej
+	/// testovanie priradenia jedneho ArrayListu do druheho
 	/// </summary>
 	class ALAssign :
 		public SimpleTest
@@ -92,7 +92,7 @@ namespace tests
 	};
 
 	/// <summary>
-	/// testovanie zhodnosti matic
+	/// testovanie zhodnosti ArrayListov
 	/// </summary>
 	class ALEquals :
 		public SimpleTest
@@ -189,6 +189,9 @@ namespace tests
 		LinkedListTestOverall();
 	};
 
+	/// <summary>
+	/// Testovanie konstruktora DLL (vytvorenie a spravne priradenie hodnot do struktury)
+	/// </summary>
 	class DLLCosntructorTest :
 		public SimpleTest
 	{
@@ -197,11 +200,25 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// testovanie kopirovacieho konstruktora (vytvorenie spravnej kopie)
+	/// </summary>
 	class DLLCopyConsturctor :
 		public SimpleTest
 	{
 	public:
 		DLLCopyConsturctor();
+		void test() override;
+	};
+
+	/// <summary>
+	/// Testovanie priradenia jedneho DLL do druheho
+	/// </summary>
+	class DLLAssign :
+		public SimpleTest
+	{
+	public:
+		DLLAssign();
 		void test() override;
 	};
 

@@ -323,6 +323,8 @@ namespace tests
 		delete testAL;
 	}
 
+	//koniec testov AL ......................................................................................................
+
 // LinkedListTestInterface:
 
 	LinkedListTestInterface::LinkedListTestInterface() :
@@ -426,5 +428,40 @@ namespace tests
 
 		delete copyTestDDL;
 		delete testDDL;
+	}
+
+	DLLAssign::DLLAssign() :
+		SimpleTest("Assign test")
+	{
+	}
+
+	void DLLAssign::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL1 = new structures::DoubleLinkedList<int>();
+		structures::DoubleLinkedList<int>* testDLL2 = new structures::DoubleLinkedList<int>();
+		structures::DoubleLinkedList<int>* testDLL3 = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL1->add(i);
+			testDLL2->add(i + 2);
+		}
+
+		for (int i = 0; i < 15; i++)
+		{
+			testDLL3->add(i);
+		}
+
+		testDLL1->assign(*testDLL2);
+
+		SimpleTest::assertTrue(testDLL2->equals(*testDLL1), "DoubleLinkedListy rovnakej velkosti sa po priradení rovnajú");
+
+		testDLL1->assign(*testDLL3);
+
+		SimpleTest::assertTrue(testDLL3->equals(*testDLL1), "DoubleLinkedListy roznej velkosti sa po priradeni rovnaju");
+
+		delete testDLL1;
+		delete testDLL2;
+		delete testDLL3;
 	}
 }
