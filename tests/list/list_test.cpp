@@ -375,7 +375,7 @@ namespace tests
 	}
 
 // DoubleLinkedListOverall:
-
+	// registracia testov DLL ........................................................................................................
 	DoubleLinkedListOverall::DoubleLinkedListOverall() :
 		ComplexTest("DoubleLinkedList")
 	{
@@ -383,6 +383,7 @@ namespace tests
 		addTest(new DLLCopyConsturctor());
 		addTest(new DLLAssign());
 		addTest(new DLLEquals());
+		addTest(new DLLAt());
 	}
 
 	DLLCosntructorTest::DLLCosntructorTest() :
@@ -499,5 +500,27 @@ namespace tests
 		delete testDLL2;
 		delete testDLL3;
 		delete testDLL4;
+	}
+
+	DLLAt::DLLAt() :
+		SimpleTest("At test")
+	{
+	}
+
+	void DLLAt::test()
+	{
+		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		for (int i = 0; i < 10; i++)
+		{
+			testDLL->add(i + 1);
+		}
+
+		SimpleTest::assertTrue(testDLL->at(0) == 1, "Na nultej poziici je prvok 1");
+		SimpleTest::assertTrue(testDLL->at(testDLL->size() - 1) == 10, "Na poslednej poziici je prvok 9");
+		SimpleTest::assertFalse(testDLL->at(1) == 1, "Na prvej pozicii nie je prvok 1");
+		SimpleTest::assertFalse(testDLL->at(testDLL->size() - 1) == 1, "Na poslednej pozici nie je prvok 1");
+
+		delete testDLL;
 	}
 }

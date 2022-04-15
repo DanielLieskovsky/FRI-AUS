@@ -234,6 +234,17 @@ namespace tests
 	};
 
 	/// <summary>
+	/// Testovanie vyberu na urcitom indexe 
+	/// </summary>
+	class DLLAt :
+		public SimpleTest
+	{
+	public:
+		DLLAt();
+		void test() override;
+	};
+
+	/// <summary>
 	/// Zahrna v sebe vsetky testy, ktore testuju DoubleLinkedList.
 	/// </summary>
 	class DoubleLinkedListOverall

@@ -475,7 +475,7 @@ namespace structures
         }
         else {
             current = last_;
-            for (int i = 0; i < index; i++)
+            for (int i = size_ - 1; i > index; i--)
             {
                 current = current->getPrevious();
             }
