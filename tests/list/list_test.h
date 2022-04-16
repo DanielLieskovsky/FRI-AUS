@@ -330,11 +330,19 @@ namespace tests
 		ListTestOverall();
 	};
 
-	class ScenarATest :
+	class ALScenarTest :
 		public SimpleTest
 	{
 	public:
-		ScenarATest();
+		ALScenarTest();
+		void test() override;
+	};
+
+	class DLLScenarTest :
+		public SimpleTest
+	{
+	public:
+		DLLScenarTest();
 		void test() override;
 	};
 }
