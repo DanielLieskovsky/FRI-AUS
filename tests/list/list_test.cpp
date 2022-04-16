@@ -686,16 +686,16 @@ namespace tests
 		structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
 		//structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
-		int maxInsert = 20000;
+		int maxInsert = 45000;
 		int pocitadloInsert = 0;
 
-		int maxRemoveAt = 20000;
+		int maxRemoveAt = 45000;
 		int pocitadloRemoveAt = 0;
 
-		int maxAt = 50000;
+		int maxAt = 5000;
 		int pocitadloAt = 0;
 
-		int maxGetIndexOf = 10000;
+		int maxGetIndexOf = 5000;
 		int pocitadloGetIndexOf = 0;
 
 		int operacia = 0;
@@ -854,16 +854,16 @@ namespace tests
 
 		structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
-		int maxInsert = 20000;
+		int maxInsert = 45000;
 		int pocitadloInsert = 0;
 
-		int maxRemoveAt = 20000;
+		int maxRemoveAt = 45000;
 		int pocitadloRemoveAt = 0;
 
-		int maxAt = 50000;
+		int maxAt = 5000;
 		int pocitadloAt = 0;
 
-		int maxGetIndexOf = 10000;
+		int maxGetIndexOf = 5000;
 		int pocitadloGetIndexOf = 0;
 
 		int operacia = 0;
