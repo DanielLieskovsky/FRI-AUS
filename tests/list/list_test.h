@@ -359,4 +359,12 @@ namespace tests
 		TimeInsertAL();
 		void test() override;
 	};
+
+	class TimeInsertDLL :
+		public SimpleTest
+	{
+	public:
+		TimeInsertDLL();
+		void test() override;
+	};
 }

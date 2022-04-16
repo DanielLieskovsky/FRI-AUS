@@ -377,6 +377,7 @@ namespace tests
 		addTest(new ALScenarTest());
 		addTest(new DLLScenarTest());
 		addTest(new TimeInsertAL());
+		addTest(new TimeInsertDLL());
 	}
 
 // DoubleLinkedListOverall:
@@ -1047,6 +1048,45 @@ namespace tests
 			cas = cas / 100;
 			structures::Logger::getInstance().logDuration(i, cas, "Insert");
 			delete testAL;
+			cas = (DurationTime)0;
+		}
+	}
+
+	TimeInsertDLL::TimeInsertDLL() :
+		SimpleTest("Casova zlozitost Insert pre Dll")
+	{
+	}
+
+	void TimeInsertDLL::test()
+	{
+		srand(time(NULL));
+		int index = 0;
+		int data = 0;
+		DurationTime cas;
+
+
+		for (int i = 1; i < 10001; i = i + 100)
+		{
+			structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+			for (int j = 0; j < i; j++)
+			{
+				testDLL->add(rand() % 100);
+			}
+
+			for (int k = 0; k < 100; k++)
+			{
+				index = rand() % testDLL->size();
+				data = rand() % 100;
+
+				SimpleTest::startStopwatch();
+				testDLL->insert(data, index);
+				SimpleTest::stopStopwatch();
+				cas = cas + SimpleTest::getElapsedTime();
+			}
+			cas = cas / 100;
+			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			delete testDLL;
 			cas = (DurationTime)0;
 		}
 	}
