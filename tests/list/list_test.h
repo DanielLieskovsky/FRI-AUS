@@ -383,4 +383,12 @@ namespace tests
 		TimeAtDLL();
 		void test() override;
 	};
+
+	class TimeRemoveAtAL :
+		public SimpleTest
+	{
+	public:
+		TimeRemoveAtAL();
+		void test() override;
+	};
 }
