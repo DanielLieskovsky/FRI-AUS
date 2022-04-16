@@ -376,6 +376,7 @@ namespace tests
 		addTest(new DoubleLinkedListOverall());
 		addTest(new ALScenarTest());
 		addTest(new DLLScenarTest());
+		addTest(new TimeInsertAL());
 	}
 
 // DoubleLinkedListOverall:
@@ -811,7 +812,7 @@ namespace tests
 				SimpleTest::startStopwatch();
 				testAL->insert(data, index);
 				SimpleTest::stopStopwatch();
-				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "Insert");
+				structures::Logger::getInstance().logDuration(pocitadloInsert, SimpleTest::getElapsedTime(), "Insert");
 				pocitadloInsert++;
 				break;
 			case 1:
@@ -819,7 +820,7 @@ namespace tests
 				SimpleTest::startStopwatch();
 				testAL->removeAt(index);
 				SimpleTest::stopStopwatch();
-				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "removeAt");
+				structures::Logger::getInstance().logDuration(pocitadloRemoveAt, SimpleTest::getElapsedTime(), "removeAt");
 				pocitadloRemoveAt++;
 				break;
 			case 2:
@@ -833,7 +834,7 @@ namespace tests
 				SimpleTest::startStopwatch();
 				testAL->getIndexOf(data);
 				SimpleTest::stopStopwatch();
-				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "getIndexOf");
+				structures::Logger::getInstance().logDuration(pocitadloGetIndexOf, SimpleTest::getElapsedTime(), "getIndexOf");
 				pocitadloGetIndexOf++;
 				break;
 			default:
@@ -1009,5 +1010,44 @@ namespace tests
 			}
 		}
 		delete testDLL;
+	}
+
+	TimeInsertAL::TimeInsertAL() :
+		SimpleTest("Casova zlozitost insert AL")
+	{
+	}
+
+	void TimeInsertAL::test()
+	{
+		srand(time(NULL));
+		int index = 0;
+		int data = 0;
+		DurationTime cas;
+
+
+		for (int i = 1; i < 10001; i = i + 100)
+		{
+			structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
+
+			for (int j = 0; j < i; j++)
+			{
+				testAL->add(rand() % 100);
+			}
+
+			for (int k = 0; k < 100; k++)
+			{
+				index = rand() % testAL->size();
+				data = rand() % 100;
+
+				SimpleTest::startStopwatch();
+				testAL->insert(data, index);
+				SimpleTest::stopStopwatch();
+				cas = cas + SimpleTest::getElapsedTime();
+			}
+			cas = cas / 100;
+			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			delete testAL;
+			cas = (DurationTime)0;
+		}
 	}
 }

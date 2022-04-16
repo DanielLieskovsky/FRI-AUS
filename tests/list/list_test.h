@@ -330,6 +330,9 @@ namespace tests
 		ListTestOverall();
 	};
 
+	/// <summary>
+	/// Testovanie jednotlivych scenarov pre ArrayList
+	/// </summary>
 	class ALScenarTest :
 		public SimpleTest
 	{
@@ -338,11 +341,22 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie jednotlivych scenarov pre DoubleLinkedListu
+	/// </summary>
 	class DLLScenarTest :
 		public SimpleTest
 	{
 	public:
 		DLLScenarTest();
+		void test() override;
+	};
+
+	class TimeInsertAL :
+		public SimpleTest
+	{
+	public:
+		TimeInsertAL();
 		void test() override;
 	};
 }
