@@ -256,6 +256,17 @@ namespace tests
 	};
 
 	/// <summary>
+	/// testovanie vkladania na urcitu poziciu
+	/// </summary>
+	class DLLInsert :
+		public SimpleTest
+	{
+	public:
+		DLLInsert();
+		void test() override;
+	};
+
+	/// <summary>
 	/// testovanie pokusu o odstranenie daneho prvku
 	/// </summary>
 	class DLLTryRemove :
@@ -319,14 +330,11 @@ namespace tests
 		ListTestOverall();
 	};
 
-	/// <summary>
-	/// 
-	/// </summary>
-	class DLLInsert :
+	class ScenarATest :
 		public SimpleTest
 	{
 	public:
-		DLLInsert();
+		ScenarATest();
 		void test() override;
 	};
 }

@@ -1,4 +1,6 @@
 #include "list_test.h"
+#include <time.h>
+#include <stdlib.h>
 
 namespace tests
 {
@@ -372,6 +374,7 @@ namespace tests
 		addTest(new ArrayListTestOverall());
 		addTest(new LinkedListTestOverall());
 		addTest(new DoubleLinkedListOverall());
+		addTest(new ScenarATest());
 	}
 
 // DoubleLinkedListOverall:
@@ -668,6 +671,174 @@ namespace tests
 		SimpleTest::assertFalse(testDLL->size() == 1, "Po Clear nie je velkost ArrayListu 1");
 
 		delete testDLL;
+	}
 
+	ScenarATest::ScenarATest() :
+		SimpleTest("Scenar A")
+	{
+	}
+
+	void ScenarATest::test()
+	{
+		srand(time(NULL));
+
+		structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
+		//structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
+
+		int maxInsert = 20000;
+		int pocitadloInsert = 0;
+
+		int maxRemoveAt = 20000;
+		int pocitadloRemoveAt = 0;
+
+		int maxAt = 50000;
+		int pocitadloAt = 0;
+
+		int maxGetIndexOf = 10000;
+		int pocitadloGetIndexOf = 0;
+
+		int operacia = 0;
+
+		for (int i = 0; i < 100000; i++)
+		{
+			if (pocitadloInsert < maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf < maxGetIndexOf) 
+			{
+				//0,1,2,3
+				operacia = rand() % 4;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf == maxGetIndexOf) 
+			{
+				//0,1,2
+				operacia = rand() % 3;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//0,1,3
+				operacia = rand() % 3;
+				if (operacia == 2) 
+				{
+					operacia = 3;
+				}
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//0,2,3
+				operacia = (rand() % 3) + 1;
+				if (operacia == 1) 
+				{
+					operacia = 0;
+				}
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf < maxGetIndexOf) 
+			{
+				//1,2,3
+				operacia = (rand() % 3) + 1;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//2,3
+				operacia = (rand() % 2) + 2;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//0,3
+				operacia = rand() % 2;
+				if (operacia == 1) 
+				{
+					operacia = 3;
+				}
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//0,1
+				operacia = rand() % 2;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//1,3
+				operacia = (rand() % 2) + 1;
+				if (operacia == 2) 
+				{
+					operacia = 3;
+				}
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//0,2
+				operacia = rand() % 2;
+				if (operacia == 1) 
+				{
+					operacia = 2;
+				}
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//1,2
+				operacia = (rand() % 2) + 1;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//0
+				operacia = 0;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt < maxRemoveAt && pocitadloRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//1
+				operacia = 1;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloRemoveAt && pocitadloAt < maxAt && pocitadloGetIndexOf == maxGetIndexOf)
+			{
+				//2
+				operacia = 2;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemoveAt == maxRemoveAt && pocitadloRemoveAt && pocitadloAt == maxAt && pocitadloGetIndexOf < maxGetIndexOf)
+			{
+				//3
+				operacia = 3;
+			}
+
+			if (testAL->size() == 0) {
+				testAL->add(rand() % 100);
+			}
+
+			int index = rand() % testAL->size();
+			int data = rand() % 100;
+
+			switch (operacia)
+			{
+			case 0 :
+				SimpleTest::startStopwatch();
+				testAL->insert(data, index);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "Insert");
+				pocitadloInsert++;
+				break;
+			case 1:
+				
+				SimpleTest::startStopwatch();
+				testAL->removeAt(index);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "removeAt");
+				pocitadloRemoveAt++;
+				break;
+			case 2:
+				SimpleTest::startStopwatch();
+				testAL->at(index);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "At");
+				pocitadloAt++;
+				break;
+			case 3:
+				SimpleTest::startStopwatch();
+				testAL->getIndexOf(data);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloAt, SimpleTest::getElapsedTime(), "getIndexOf");
+				pocitadloGetIndexOf++;
+				break;
+			default:
+				break;
+			}
+		}
+		delete testAL;
 	}
 }
