@@ -352,6 +352,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie Insert ArrayListu
+	/// </summary>
 	class TimeInsertAL :
 		public SimpleTest
 	{
@@ -360,6 +363,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie Insert DoubleLinkedListu
+	/// </summary>
 	class TimeInsertDLL :
 		public SimpleTest
 	{
@@ -368,6 +374,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie At ArrayListu
+	/// </summary>
 	class TimeAtAL :
 		public SimpleTest
 	{
@@ -376,6 +385,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie At DoubleLinkedListu
+	/// </summary>
 	class TimeAtDLL :
 		public SimpleTest
 	{
@@ -384,6 +396,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie RemoveAt ArrayListu
+	/// </summary>
 	class TimeRemoveAtAL :
 		public SimpleTest
 	{
@@ -392,6 +407,9 @@ namespace tests
 		void test() override;
 	};
 
+	/// <summary>
+	/// Testovanie operácie RemoveAt DoubleLinkedListu
+	/// </summary>
 	class TimeRemoveAtDLL :
 		public SimpleTest
 	{

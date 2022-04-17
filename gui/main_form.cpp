@@ -62,7 +62,7 @@ void main(array<String^>^)
 	// Odoberatel logu, ktory preposiela spravy do GUI.
 	//gui::GuiLogConsumer* guiLogConsumer = new gui::GuiLogConsumer(%form);
 
-	csv_log_consumer* csvLogConsumer = new csv_log_consumer("logDLLRemoveAt.csv");
+	csv_log_consumer* csvLogConsumer = new csv_log_consumer("logDLLInsert3.csv");
 
 	//structures::Logger::getInstance().registerConsumer(guiLogConsumer);
 	structures::Logger::getInstance().registerConsumer(csvLogConsumer);

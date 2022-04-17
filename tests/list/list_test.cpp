@@ -690,7 +690,6 @@ namespace tests
 		srand(time(NULL));
 
 		structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
-		//structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
 		int maxInsert = 45000;
 		int pocitadloInsert = 0;
@@ -705,6 +704,8 @@ namespace tests
 		int pocitadloGetIndexOf = 0;
 
 		int operacia = 0;
+		int index = 0;
+		int data = 0;
 
 		for (int i = 0; i < 100000; i++)
 		{
@@ -808,8 +809,8 @@ namespace tests
 				testAL->add(rand() % 100);
 			}
 
-			int index = rand() % testAL->size();
-			int data = rand() % 100;
+			index = rand() % testAL->size();
+			data = rand() % 100;
 
 			switch (operacia)
 			{
@@ -873,6 +874,8 @@ namespace tests
 		int pocitadloGetIndexOf = 0;
 
 		int operacia = 0;
+		int data = 0;
+		int index = 0;
 
 		for (int i = 0; i < 100000; i++)
 		{
@@ -976,8 +979,8 @@ namespace tests
 				testDLL->add(rand() % 100);
 			}
 
-			int index = rand() % testDLL->size();
-			int data = rand() % 100;
+			index = rand() % testDLL->size();
+			data = rand() % 100;
 
 			switch (operacia)
 			{
@@ -1030,7 +1033,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 1; i < 10001; i = i + 100)
+		for (int i = 1; i < 100002; i = i + 1000)
 		{
 			structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
 
@@ -1039,7 +1042,7 @@ namespace tests
 				testAL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testAL->size();
 				data = rand() % 100;
@@ -1049,7 +1052,7 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
+			cas = cas / 1000;
 			structures::Logger::getInstance().logDuration(i, cas, "Insert");
 			delete testAL;
 			cas = (DurationTime)0;
@@ -1069,7 +1072,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 1; i < 10001; i = i + 100)
+		for (int i = 1; i < 100002; i = i + 1000)
 		{
 			structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
@@ -1078,7 +1081,7 @@ namespace tests
 				testDLL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testDLL->size();
 				data = rand() % 100;
@@ -1088,7 +1091,7 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
+			cas = cas / 1000;
 			structures::Logger::getInstance().logDuration(i, cas, "Insert");
 			delete testDLL;
 			cas = (DurationTime)0;
@@ -1108,7 +1111,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 1; i < 10002; i = i + 100)
+		for (int i = 1; i < 100002; i = i + 1000)
 		{
 			structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
 
@@ -1117,7 +1120,7 @@ namespace tests
 				testAL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testAL->size();
 
@@ -1126,8 +1129,8 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
-			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			cas = cas / 1000;
+			structures::Logger::getInstance().logDuration(i, cas, "At");
 			delete testAL;
 			cas = (DurationTime)0;
 		}
@@ -1146,7 +1149,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 1; i < 10002; i = i + 100)
+		for (int i = 1; i < 100002; i = i + 1000)
 		{
 			structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
@@ -1155,7 +1158,7 @@ namespace tests
 				testDLL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testDLL->size();
 
@@ -1164,8 +1167,8 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
-			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			cas = cas / 1000;
+			structures::Logger::getInstance().logDuration(i, cas, "At");
 			delete testDLL;
 			cas = (DurationTime)0;
 		}
@@ -1184,7 +1187,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 101; i < 100002; i = i + 1000)
+		for (int i = 1001; i < 100002; i = i + 1000)
 		{
 			structures::ArrayList<int>* testAL = new structures::ArrayList<int>();
 
@@ -1193,7 +1196,7 @@ namespace tests
 				testAL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testAL->size();
 
@@ -1202,8 +1205,8 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
-			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			cas = cas / 1000;
+			structures::Logger::getInstance().logDuration(i, cas, "RemoveAt");
 			delete testAL;
 			cas = (DurationTime)0;
 		}
@@ -1222,7 +1225,7 @@ namespace tests
 		DurationTime cas;
 
 
-		for (int i = 101; i < 100002; i = i + 1000)
+		for (int i = 1001; i < 100002; i = i + 1000)
 		{
 			structures::DoubleLinkedList<int>* testDLL = new structures::DoubleLinkedList<int>();
 
@@ -1231,7 +1234,7 @@ namespace tests
 				testDLL->add(rand() % 100);
 			}
 
-			for (int k = 0; k < 100; k++)
+			for (int k = 0; k < 1000; k++)
 			{
 				index = rand() % testDLL->size();
 
@@ -1240,8 +1243,8 @@ namespace tests
 				SimpleTest::stopStopwatch();
 				cas = cas + SimpleTest::getElapsedTime();
 			}
-			cas = cas / 100;
-			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+			cas = cas / 1000;
+			structures::Logger::getInstance().logDuration(i, cas, "RemoveAt");
 			delete testDLL;
 			cas = (DurationTime)0;
 		}
