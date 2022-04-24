@@ -74,15 +74,22 @@ namespace structures
     template<typename T>
     inline Structure& PriorityQueueLimitedSortedArrayList<T>::assign(Structure& other)
     {
-        //TODO 06: PriorityQueueLimitedSortedArrayList
-        throw std::runtime_error("PriorityQueueLimitedSortedArrayList<T>::assign: Not implemented yet.");
+        if (this != &other) {
+            capacity_ = dynamic_cast<PriorityQueueLimitedSortedArrayList<T>&>(other).capacity_;
+            PriorityQueueSortedArrayList<T>::assign(dynamic_cast<PriorityQueueSortedArrayList<T>&>(other));
+        }
+        return *this;
     }
 
     template<typename T>
     void PriorityQueueLimitedSortedArrayList<T>::push(int priority, const T& data)
     {
-        //TODO 06: PriorityQueueLimitedSortedArrayList
-        throw std::runtime_error("PriorityQueueLimitedSortedArrayList<T>::push: Not implemented yet.");
+        if (capacity_ != PriorityQueueList<T>::size()) {
+            PriorityQueueSortedArrayList<T>::push(priority, data);
+        }
+        else {
+            throw std::logic_error("Plny list");
+        }
     }
 
     template<typename T>
@@ -99,7 +106,7 @@ namespace structures
             PriorityQueueSortedArrayList<T>::push(priority, data);
             return nullptr;
         }
-        PriorityQueueItem<T>* result = PriorityQueueItem<T>::list_->removeAt(0);
+        PriorityQueueItem<T>* result = PriorityQueueList<T>::list_->removeAt(0);
         PriorityQueueSortedArrayList<T>::push(priority, data);
         return result;
     }

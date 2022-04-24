@@ -62,8 +62,14 @@ namespace structures
 	inline void PriorityQueueSortedArrayList<T>::push(int priority, const T& data)
 	{
 		int predch = PriorityQueueList<T>::list_->size() -1;
-		list_->add(new PriorityQueueItem<T>(priority, data));
-		while (predch >= 0 && list_->at(predch)->getPriority() > 0 ) {}
+		PriorityQueueList<T>::list_->add(new PriorityQueueItem<T>(priority, data));
+		while (predch >= 0 && PriorityQueueList<T>::list_->at(predch)->getPriority() > priority ) {
+			Utils::swap(
+				PriorityQueueList<T>::list_->at(predch),
+				PriorityQueueList<T>::list_->at(predch + 1)
+			);
+			predch--;
+		}
 	}
 
 	template<typename T>
@@ -72,6 +78,11 @@ namespace structures
 		//TODO 06: PriorityQueueSortedArrayList
 		//throw std::runtime_error("PriorityQueueSortedArrayList<T>::index_of_peek: Not implemented yet.");
 
-		return size() - 1;
+		if (list_->size() == 0) {
+			throw std::logic_error("Prazdny list");
+		}
+		else {
+			return size() - 1;
+		}
 	}
 }

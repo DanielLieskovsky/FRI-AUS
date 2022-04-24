@@ -79,6 +79,8 @@ namespace structures
 	PriorityQueueTwoLists<T>::~PriorityQueueTwoLists()
 	{
 		clear();
+		shortList_ = nullptr;
+		longList_ = nullptr;
 	}
 
 	template<typename T>
@@ -95,7 +97,8 @@ namespace structures
 	template<typename T>
 	size_t PriorityQueueTwoLists<T>::size()
 	{
-		return longList_->size() + (dynamic_cast<PriorityQueueList<T>*>(shortList_))->size();
+		//return longList_->size() + (dynamic_cast<PriorityQueueList<T>*>(shortList_))->size();
+		return longList_->size() + + shortList_->PriorityQueueList<T>::size();
 	}
 
 	template<typename T>
@@ -103,8 +106,6 @@ namespace structures
 	{
 		delete shortList_;
 		delete longList_;
-		shortList_ = nullptr;
-		longList_ = nullptr;
 	}
 
 	template<typename T>
@@ -127,29 +128,31 @@ namespace structures
 		}
 		else {
 			int num = (int)sqrt(longList_->size());
-			shortList_->trySetCapacity((num > 4) ? number : 4);
-			LinkedList<PriorityQueueItem<T>*> pomocnyLongList = new LinkedList<PriorityQueueItem<T>*>();
+			shortList_->trySetCapacity((num > 4) ? num : 4);
+			LinkedList<PriorityQueueItem<T>*>* pomocnyLongList = new LinkedList<PriorityQueueItem<T>*>();
 			while (longList_->size() != 0) {
 				PriorityQueueItem<T>* kopia = longList_->removeAt(0);
 				kopia = shortList_->pushAndRemove(kopia->getPriority(), kopia->accessData());
 				if (kopia != nullptr) {
-					pomocnyLongList.add(kopia);
+					pomocnyLongList->add(kopia);
 				}
 			}
 			longList_ = pomocnyLongList;
-			return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_)).pop();
+			return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
 		}
 	}
 
 	template<typename T>
 	T& PriorityQueueTwoLists<T>::peek()
 	{
-		return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peek();
+		//return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peek();
+		return shortList_->PriorityQueueList<T>::peek();
 	}
 
 	template<typename T>
 	int PriorityQueueTwoLists<T>::peekPriority()
 	{
 		return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peekPriority();
+		//return shortList_->PriorityQueueSortedArrayList<T>::indexOfPeek();
 	}
 }
