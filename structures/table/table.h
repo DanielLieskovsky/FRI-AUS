@@ -37,15 +37,11 @@ namespace structures
 		/// <summary> Vymaze tabulku. </summary>
 		virtual void clear() = 0;
 
-		/// <summary> Porovnanie struktur. </summary>
-		/// <param name="other">Struktura, s ktorou sa ma tato struktura porovnat. </param>
-		/// <returns>True ak su struktury zhodne typom aj obsahom. </returns>
-		virtual bool equals(Structure& other) = 0;
-
 		/// <summary> Vrati adresou data s danym klucom. </summary>
 		/// <param name = "key"> Kluc dat. </param>
 		/// <returns> Adresa dat s danym klucom. </returns>
 		/// <exception cref="std::out_of_range"> Vyhodena, ak kluc nepatri do tabulky. </exception>
+		//virtual T& operator[](const K key) = 0;
 		virtual T& find(const K& key) = 0;
 
 		/// <summary> Vlozi data s danym klucom do tabulky. </summary>
@@ -79,7 +75,7 @@ namespace structures
 	};
 
 	template<typename K, typename T>
-	inline TableItem<K, T>::TableItem(const K& key, const T& data):
+	inline TableItem<K, T>::TableItem(const K& key, const T& data) :
 		DataItem<T>(data),
 		key_(key)
 	{
@@ -101,7 +97,14 @@ namespace structures
 
 		for (TableItem<K, T>* otherItem : *other)
 		{
-			if (!containsKey(otherItem->getKey()))
+			T data;
+			bool found = this->tryFind(otherItem->getKey(), data);
+			if (!found)
+			{
+				return false;
+			}
+
+			if (data != otherItem->accessData())
 			{
 				return false;
 			}
