@@ -268,7 +268,7 @@ namespace structures
             return false;
         }
 
-        if (this->size_ != otherLinkedList->size_) {
+        if (this->size_ != otherLinkedList->size()) {
             return false;
         }
 
@@ -279,8 +279,8 @@ namespace structures
             if (curThis->accessData() != curOther->accessData()) {
                 return false;
             }
-            curThis->getNext();
-            curOther->getNext();
+            curThis = curThis->getNext();
+            curOther = curOther->getNext();
         }
         return true;
     }
@@ -510,7 +510,7 @@ namespace structures
         //TODO 04: LinkedList
         //throw std::runtime_error("LinkedList<T>::LinkedListIterator::operator++: Not implemented yet.");
 
-        this->position_ == this->position_->getNext();
+        this->position_ = this->position_->getNext();
         return *this;
     }
 

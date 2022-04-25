@@ -152,7 +152,7 @@ namespace structures
 	template<typename T>
 	int PriorityQueueTwoLists<T>::peekPriority()
 	{
-		return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peekPriority();
-		//return shortList_->PriorityQueueSortedArrayList<T>::indexOfPeek();
+		//return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peekPriority();
+		return shortList_->PriorityQueueSortedArrayList<T>::peekPriority();
 	}
 }

@@ -133,6 +133,9 @@ namespace structures
 					indexSon = getGreaterSonIndex(index);
 				}
 			}
+			else {
+				item = list_->removeAt(0);
+			}
 				T result = item->accessData();
 				delete item;
 				return result;
@@ -147,6 +150,7 @@ namespace structures
 	{
 		//TODO 06: Heap
 		//throw std::runtime_error("Heap<T>::getParentIndex: Not implemented yet.");
+		// return (index + 1) / 2 - 1;
 
 		return (index - 1) / 2;
 	}
@@ -172,7 +176,6 @@ namespace structures
 				return PriorityQueueList<T>::list_->at(leftIndex)->getPriority() <
 					PriorityQueueList<T>::list_->at(rightIndex)->getPriority() ? leftIndex : rightIndex;
 			}
-			
 		}
 	}
 

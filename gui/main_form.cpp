@@ -47,7 +47,7 @@ void main(array<String^>^)
 	//tests.emplace_back(new tests::QueueTestOverall());
 
 	// TODO 06: PriorityQueue
-	//tests.emplace_back(new tests::PriorityQueueTestOverall());
+	tests.emplace_back(new tests::PriorityQueueTestOverall());
 
 	// TODO 07: Tree
 	//tests.emplace_back(new tests::TreeTestOverall());

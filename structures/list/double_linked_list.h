@@ -524,7 +524,7 @@ namespace structures
     template<typename T>
     inline Iterator<T>& DoubleLinkedList<T>::DoubleLinkedListIterator::operator++()
     {
-        this->position_ == this->position_->getNext();
+        this->position_ = this->position_->getNext();
         return *this;
     }
 }
