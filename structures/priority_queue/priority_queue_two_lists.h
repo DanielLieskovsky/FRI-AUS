@@ -98,7 +98,7 @@ namespace structures
 	size_t PriorityQueueTwoLists<T>::size()
 	{
 		//return longList_->size() + (dynamic_cast<PriorityQueueList<T>*>(shortList_))->size();
-		return longList_->size() + + shortList_->PriorityQueueList<T>::size();
+		return longList_->size() + shortList_->PriorityQueueList<T>::size();
 	}
 
 	template<typename T>
