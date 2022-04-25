@@ -46,7 +46,6 @@ namespace structures
 		/// <param name = "key"> Kluc dat. </param>
 		/// <returns> Adresa dat s danym klucom. </returns>
 		/// <exception cref="std::out_of_range"> Vyhodena, ak kluc nepatri do tabulky. </exception>
-		//virtual T& operator[](const K key) = 0;
 		virtual T& find(const K& key) = 0;
 
 		/// <summary> Vlozi data s danym klucom do tabulky. </summary>
@@ -73,10 +72,10 @@ namespace structures
 		virtual bool containsKey(const K& key) = 0;
 
 	protected:
-		/// <summary> Porovnanie struktur. Pomocna metoda, ktora prebera referenciu, ktoru posle potomok. </summary>
+		/// <summary> Porovnanie struktur. Pomocna metoda, ktora prebera pointer, ktoru posle potomok. </summary>
 		/// <param name="other">Struktura, s ktorou sa ma tato struktura porovnat. </param>
 		/// <returns>True ak su struktury zhodne typom aj obsahom. </returns>
-		bool equals(Table<K, T>* other);
+		bool equalsTable(Table<K, T>* other);
 	};
 
 	template<typename K, typename T>
@@ -93,7 +92,7 @@ namespace structures
 	}
 
 	template<typename K, typename T>
-	inline bool Table<K, T>::equals(Table<K, T>* other)
+	inline bool Table<K, T>::equalsTable(Table<K, T>* other)
 	{
 		if (other == nullptr)
 		{
