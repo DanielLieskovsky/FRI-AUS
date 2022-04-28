@@ -80,21 +80,31 @@ namespace structures
 	template<typename K, typename T>
 	inline void SortedSequenceTable<K, T>::insert(const K& key, const T& data)
 	{
-		//TODO 08: SortedSequenceTable
-		throw std::runtime_error("SortedSequenceTable<K, T>::insert: Not implemented yet.");
+		bool found = false;
+		int index = indexOfKey(key, 0, this->size() - 1, found);
+
+		if (!found)
+		{
+			list_->insert(new TableItem<K, T>(key, data), index);
+		}
+		else
+		{
+			return std::logic_error("NE Kluc");
+		}
 	}
 
 	template<typename K, typename T>
 	inline TableItem<K, T>* SortedSequenceTable<K, T>::findTableItem(const K& key)
 	{
-		//TODO 08: SortedSequenceTable
-		throw std::runtime_error("SortedSequenceTable<K, T>::findTableItem: Not implemented yet.");
+		bool found = false;
+		int index = indexOfKey(key, 0, this->size() - 1, found);
+
+		return found ? SequenceTable<K, T>::list_->at(index) : nullptr;
 	}
 
 	template<typename K, typename T>
 	inline int SortedSequenceTable<K, T>::indexOfKey(K key, int indexStart, int indexEnd, bool& found)
 	{
-		//TODO 08: SortedSequenceTable
-		throw std::runtime_error("SortedSequenceTable<K, T>::indexOfKey: Not implemented yet.");
+		
 	}
 }
