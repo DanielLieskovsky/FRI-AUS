@@ -105,6 +105,10 @@ namespace structures
 	void PriorityQueueTwoLists<T>::clear()
 	{
 		delete shortList_;
+		for (auto item : *longList_) 
+		{
+			delete item;
+		}
 		delete longList_;
 	}
 

@@ -89,7 +89,7 @@ namespace structures
 		}
 		else
 		{
-			return std::logic_error("NE Kluc");
+			throw std::logic_error("NE Kluc");
 		}
 	}
 
@@ -105,6 +105,6 @@ namespace structures
 	template<typename K, typename T>
 	inline int SortedSequenceTable<K, T>::indexOfKey(K key, int indexStart, int indexEnd, bool& found)
 	{
-		
+		return 0;
 	}
 }

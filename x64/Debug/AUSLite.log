@@ -1,92 +1,215 @@
-﻿  priority_queue_test.cpp
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_unsorted_array_list.h(72,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_unsorted_array_list.h(65): message : while compiling class template member function 'T structures::PriorityQueueUnsortedArrayList<T>::pop(void)'
+﻿  sort.cpp
+  table_test.cpp
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(139,62): warning C4100: 'other': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(140): message : while compiling class template member function 'structures::Structure &structures::BinarySearchTree<int,int>::assign(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(34): message : see reference to class template instantiation 'structures::BinarySearchTree<int,int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(152,50): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(153): message : while compiling class template member function 'T &structures::BinarySearchTree<int,T>::find(const K &)'
           with
           [
-              T=int
+              T=int,
+              K=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(31): message : see reference to class template instantiation 'structures::PriorityQueueUnsortedArrayList<int>' being compiled
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_sorted_array_list.h(64,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_sorted_array_list.h(63): message : while compiling class template member function 'void structures::PriorityQueueSortedArrayList<int>::push(int,const T &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(159,68): warning C4100: 'data': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(160): message : while compiling class template member function 'void structures::BinarySearchTree<int,int>::insert(const K &,const T &)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(36): message : see reference to class template instantiation 'structures::PriorityQueueSortedArrayList<int>' being compiled
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_sorted_array_list.h(85,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_sorted_array_list.h(77): message : while compiling class template member function 'int structures::PriorityQueueSortedArrayList<int>::indexOfPeek(void)'
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\heap.h(83,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\heap.h(77): message : while compiling class template member function 'void structures::Heap<int>::push(int,const T &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(159,54): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(166,51): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(167): message : while compiling class template member function 'T structures::BinarySearchTree<int,T>::remove(const K &)'
           with
           [
-              T=int
+              T=int,
+              K=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(56): message : see reference to class template instantiation 'structures::Heap<int>' being compiled
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\heap.h(108,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\heap.h(103): message : while compiling class template member function 'T structures::Heap<T>::pop(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(173,63): warning C4100: 'data': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(174): message : while compiling class template member function 'bool structures::BinarySearchTree<int,int>::tryFind(const K &,T &)'
           with
           [
+              K=int,
               T=int
           ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(173,55): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(180,59): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(181): message : while compiling class template member function 'bool structures::BinarySearchTree<int,int>::containsKey(const K &)'
+          with
+          [
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(179,55): warning C4100: 'other': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(180): message : while compiling class template member function 'structures::Structure &structures::HashTable<int,int>::assign(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(39): message : see reference to class template instantiation 'structures::HashTable<int,int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(192,43): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(193): message : while compiling class template member function 'T &structures::HashTable<int,T>::find(const K &)'
+          with
+          [
+              T=int,
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(199,61): warning C4100: 'data': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(200): message : while compiling class template member function 'void structures::HashTable<int,int>::insert(const K &,const T &)'
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(199,47): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(206,44): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(207): message : while compiling class template member function 'T structures::HashTable<int,T>::remove(const K &)'
+          with
+          [
+              T=int,
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(213,57): warning C4100: 'data': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(214): message : while compiling class template member function 'bool structures::HashTable<int,int>::tryFind(const K &,T &)'
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(213,48): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(220,52): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(221): message : while compiling class template member function 'bool structures::HashTable<int,int>::containsKey(const K &)'
+          with
+          [
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(84,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(82): message : while compiling class template member function 'void structures::SortedSequenceTable<int,int>::insert(const K &,const T &)'
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(49): message : see reference to class template instantiation 'structures::SortedSequenceTable<int,int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(100,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(98): message : while compiling class template member function 'structures::TableItem<K,T> *structures::SortedSequenceTable<K,T>::findTableItem(const K &)'
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(146,51): warning C4100: 'other': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(147): message : while compiling class template member function 'structures::Structure &structures::Treap<int,int>::assign(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(54): message : see reference to class template instantiation 'structures::Treap<int,int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(159,57): warning C4100: 'data': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(160): message : while compiling class template member function 'void structures::Treap<int,int>::insert(const K &,const T &)'
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(159,43): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(166,40): warning C4100: 'key': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\treap.h(167): message : while compiling class template member function 'T structures::Treap<int,T>::remove(const K &)'
+          with
+          [
+              T=int,
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(270,111): warning C4100: 'other': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(271): message : while compiling class template member function 'structures::Iterator<T> &structures::HashTable<int,int>::HashTableIterator::operator =(structures::Iterator<T> &)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(236): message : see reference to class template instantiation 'structures::HashTable<int,int>::HashTableIterator' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(235): message : while compiling class template member function 'structures::Iterator<T> *structures::HashTable<int,int>::getBeginIterator(void)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(277,89): warning C4100: 'other': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\hash_table.h(278): message : while compiling class template member function 'bool structures::HashTable<int,int>::HashTableIterator::operator !=(structures::Iterator<T> &)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(106,94): warning C4100: 'found': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(107): message : while compiling class template member function 'int structures::SortedSequenceTable<int,int>::indexOfKey(K,int,int,bool &)'
+          with
+          [
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(84): message : see reference to function template instantiation 'int structures::SortedSequenceTable<int,int>::indexOfKey(K,int,int,bool &)' being compiled
+          with
+          [
+              K=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(56): message : while compiling class template member function 'structures::SortedSequenceTable<int,int>::SortedSequenceTable(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(49): message : see reference to function template instantiation 'structures::SortedSequenceTable<int,int>::SortedSequenceTable(void)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(106,78): warning C4100: 'indexEnd': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(106,62): warning C4100: 'indexStart': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(106,53): warning C4100: 'key': unreferenced formal parameter
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.h(355,15): warning C4189: 'result': local variable is initialized but not referenced
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.h(345): message : while compiling class template member function 'bool structures::LinkedList<structures::PriorityQueueItem<T> *>::tryRemove(structures::PriorityQueueItem<T> &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\linked_list.h(345): message : while compiling class template member function 'bool structures::LinkedList<structures::TableItem<K,T> *>::tryRemove(structures::TableItem<K,T> &)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_linked_list.h(34): message : see reference to class template instantiation 'structures::LinkedList<structures::PriorityQueueItem<T> *>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\linked_table.h(36): message : see reference to class template instantiation 'structures::LinkedList<structures::TableItem<K,T> *>' being compiled
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_linked_list.h(33): message : while compiling class template member function 'structures::PriorityQueueLinkedList<int>::PriorityQueueLinkedList(void)'
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(46): message : see reference to function template instantiation 'structures::PriorityQueueLinkedList<int>::PriorityQueueLinkedList(void)' being compiled
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(46): message : see reference to class template instantiation 'structures::PriorityQueueLinkedList<int>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\linked_table.h(35): message : while compiling class template member function 'structures::LinkedTable<int,int>::LinkedTable(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(44): message : see reference to function template instantiation 'structures::LinkedTable<int,int>::LinkedTable(void)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(44): message : see reference to class template instantiation 'structures::LinkedTable<int,int>' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(199,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(185): message : while compiling class template member function 'bool structures::ArrayList<structures::PriorityQueueItem<T> *>::equals(structures::Structure &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(185): message : while compiling class template member function 'bool structures::ArrayList<structures::TableItem<K,T> *>::equals(structures::Structure &)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_unsorted_array_list.h(38): message : see reference to class template instantiation 'structures::ArrayList<structures::PriorityQueueItem<T> *>' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(57): message : see reference to class template instantiation 'structures::ArrayList<structures::TableItem<K,T> *>' being compiled
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_unsorted_array_list.h(37): message : while compiling class template member function 'structures::PriorityQueueUnsortedArrayList<int>::PriorityQueueUnsortedArrayList(void)'
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\priority_queue\priority_queue_test.cpp(31): message : see reference to function template instantiation 'structures::PriorityQueueUnsortedArrayList<int>::PriorityQueueUnsortedArrayList(void)' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(234,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(227): message : while compiling class template member function 'void structures::ArrayList<structures::PriorityQueueItem<T> *>::add(structures::PriorityQueueItem<T> &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(227): message : while compiling class template member function 'void structures::ArrayList<structures::TableItem<K,T> *>::add(structures::TableItem<K,T> &)'
           with
           [
+              K=int,
               T=int
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(252,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(240): message : while compiling class template member function 'void structures::ArrayList<structures::PriorityQueueItem<T> *>::insert(structures::PriorityQueueItem<T> &,int)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(240): message : while compiling class template member function 'void structures::ArrayList<structures::TableItem<K,T> *>::insert(structures::TableItem<K,T> &,int)'
           with
           [
+              K=int,
               T=int
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(283,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(276): message : while compiling class template member function 'T structures::ArrayList<T>::removeAt(int)'
           with
           [
-              T=structures::PriorityQueueItem<int> *
+              T=structures::TableItem<int,int> *
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(270): message : see reference to function template instantiation 'T structures::ArrayList<T>::removeAt(int)' being compiled
           with
           [
-              T=structures::PriorityQueueItem<int> *
+              T=structures::TableItem<int,int> *
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(298,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(292): message : while compiling class template member function 'int structures::ArrayList<structures::PriorityQueueItem<T> *>::getIndexOf(structures::PriorityQueueItem<T> &)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(292): message : while compiling class template member function 'int structures::ArrayList<structures::TableItem<K,T> *>::getIndexOf(structures::TableItem<K,T> &)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(264): message : see reference to function template instantiation 'int structures::ArrayList<structures::PriorityQueueItem<T> *>::getIndexOf(structures::PriorityQueueItem<T> &)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(264): message : see reference to function template instantiation 'int structures::ArrayList<structures::TableItem<K,T> *>::getIndexOf(structures::TableItem<K,T> &)' being compiled
           with
           [
+              K=int,
               T=int
           ]
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(299,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
@@ -94,30 +217,81 @@ C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(325): message : while compiling class template member function 'structures::Iterator<T> *structures::ArrayList<T>::getEndIterator(void)'
           with
           [
-              T=structures::PriorityQueueItem<int> *
+              T=structures::TableItem<int,int> *
           ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\tree.h(319,1): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\tree.h(308): message : while compiling class template member function 'size_t structures::TreeNode<T>::sizeOfSubtree(void)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\tree.h(363): message : see reference to function template instantiation 'size_t structures::TreeNode<T>::sizeOfSubtree(void)' being compiled
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\k_way_tree.h(13): message : see reference to class template instantiation 'structures::TreeNode<T>' being compiled
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\binary_tree.h(13): message : see reference to class template instantiation 'structures::KWayTreeNode<T,2>' being compiled
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\binary_tree.h(229): message : see reference to class template instantiation 'structures::BinaryTreeNode<structures::TableItem<K,T> *>' being compiled
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\binary_tree.h(227): message : while compiling class template member function 'structures::TreeNode<T> *structures::BinaryTree<T>::createTreeNodeInstance(void)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(113): message : see reference to class template instantiation 'structures::BinaryTree<structures::TableItem<K,T> *>' being compiled
+          with
+          [
+              K=int,
+              T=int
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\binary_search_tree.h(111): message : while compiling class template member function 'structures::BinarySearchTree<int,int>::BinarySearchTree(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\tests\table\table_test.cpp(34): message : see reference to function template instantiation 'structures::BinarySearchTree<int,int>::BinarySearchTree(void)' being compiled
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(339,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(334): message : while compiling class template member function 'void structures::ArrayList<structures::PriorityQueueItem<T> *>::enlarge(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(334): message : while compiling class template member function 'void structures::ArrayList<structures::TableItem<K,T> *>::enlarge(void)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(232): message : see reference to function template instantiation 'void structures::ArrayList<structures::PriorityQueueItem<T> *>::enlarge(void)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(232): message : see reference to function template instantiation 'void structures::ArrayList<structures::TableItem<K,T> *>::enlarge(void)' being compiled
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(135): message : while compiling class template member function 'structures::ArrayList<structures::PriorityQueueItem<T> *>::ArrayList(void)'
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(135): message : while compiling class template member function 'structures::ArrayList<structures::TableItem<K,T> *>::ArrayList(void)'
           with
           [
+              K=int,
               T=int
           ]
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_unsorted_array_list.h(38): message : see reference to function template instantiation 'structures::ArrayList<structures::PriorityQueueItem<T> *>::ArrayList(void)' being compiled
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\table\sorted_sequence_table.h(57): message : see reference to function template instantiation 'structures::ArrayList<structures::TableItem<K,T> *>::ArrayList(void)' being compiled
           with
           [
+              K=int,
               T=int
           ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\k_way_tree.h(153,66): warning C4100: 'order': unreferenced formal parameter
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\k_way_tree.h(154): message : while compiling class template member function 'void structures::KWayTreeNode<T,2>::insertSon(structures::TreeNode<T> *,int)'
+          with
+          [
+              T=structures::TableItem<int,int> *
+          ]
+C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\tree\k_way_tree.h(153,57): warning C4100: 'son': unreferenced formal parameter
+  Generating Code...
 C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\list\array_list.h(211): warning C4702: unreachable code
-C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\structures\priority_queue\priority_queue_two_lists.h(143): warning C4715: 'structures::PriorityQueueTwoLists<int>::pop': not all control paths return a value
   csv_log_consumer.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   AUSLite.vcxproj -> C:\Users\Daniel Lieskovský\Desktop\auds\AUS_VS2019\x64\Debug\DataStructures.exe

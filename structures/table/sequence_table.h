@@ -128,12 +128,12 @@ namespace structures
 	template<typename K, typename T>
 	inline T SequenceTable<K, T>::remove(const K& key)
 	{
-		TableItem<K, T> hladany = findTableItem(key);
+		TableItem<K, T>* hladany = findTableItem(key);
 
 		if (hladany != nullptr)
 		{
 			list_->tryRemove(hladany);
-			T result = hladany.accessData();
+			T result = hladany->accessData();
 			delete hladany;
 			return result;
 		}
@@ -172,22 +172,23 @@ namespace structures
 	template<typename K, typename T>
 	inline void SequenceTable<K, T>::clear()
 	{
-		for (auto item : *list_) {
+		for (auto item : *list_) 
+		{
 			delete item;
 		}
-		list_clear();
+		list_->clear();
 	}
 
 	template<typename K, typename T>
 	inline Iterator<TableItem<K, T>*>* SequenceTable<K, T>::getBeginIterator()
 	{
-		list_->getBeginIterator();
+		return list_->getBeginIterator();
 	}
 
 	template<typename K, typename T>
 	inline Iterator<TableItem<K, T>*>* SequenceTable<K, T>::getEndIterator()
 	{
-		list_->getEndIterator();
+		return list_->getEndIterator();
 	}
 
 	template<typename K, typename T>
@@ -200,7 +201,7 @@ namespace structures
 	template<typename K, typename T>
 	inline TableItem<K, T>* SequenceTable<K, T>::findTableItem(const K& key)
 	{
-		for (auto item = *list_)
+		for (auto item : *list_)
 		{
 			if (item->getKey() == key) {
 				return item;
