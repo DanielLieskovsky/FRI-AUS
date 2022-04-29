@@ -88,6 +88,7 @@ namespace structures
 	{
 		if (this != &other) {
 			PriorityQueueTwoLists<T>& otherPQTL = dynamic_cast<PriorityQueueTwoLists<T>&>(other);
+			clear();
 			shortList_ = new PriorityQueueLimitedSortedArrayList<T>(*otherPQTL.shortList_);
 			longList_ = new LinkedList<PriorityQueueItem<T>*>(*otherPQTL.longList_);
 		}
@@ -127,10 +128,10 @@ namespace structures
 		if (size() == 0) {
 			throw std::logic_error("List je prazdny");
 		} 
-		if ((dynamic_cast<PriorityQueueList<T>*>(shortList_))->size() != 0) {
-			(dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
-		}
-		else {
+		
+		T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
+
+		if (shortList_->PriorityQueueList<T>::size() == 0) {
 			int num = (int)sqrt(longList_->size());
 			shortList_->trySetCapacity((num > 4) ? num : 4);
 			LinkedList<PriorityQueueItem<T>*>* pomocnyLongList = new LinkedList<PriorityQueueItem<T>*>();
@@ -142,8 +143,8 @@ namespace structures
 				}
 			}
 			longList_ = pomocnyLongList;
-			return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
 		}
+		return pomocna;
 	}
 
 	template<typename T>

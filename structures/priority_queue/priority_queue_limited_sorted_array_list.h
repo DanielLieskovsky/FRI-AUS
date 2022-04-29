@@ -60,7 +60,7 @@ namespace structures
     template<typename T>
     PriorityQueueLimitedSortedArrayList<T>::PriorityQueueLimitedSortedArrayList() :
         PriorityQueueSortedArrayList<T>(),
-        capacity_(2)
+        capacity_(4)
     {
     }
 
@@ -114,7 +114,7 @@ namespace structures
     template<typename T>
     inline int PriorityQueueLimitedSortedArrayList<T>::minPriority()
     {
-        if (capacity_ != PriorityQueueList<T>::size()) {
+        if (0 != PriorityQueueList<T>::size()) {
             return PriorityQueueList<T>::list_->at(0)->getPriority();
         }
 

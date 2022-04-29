@@ -131,6 +131,14 @@ namespace tests
         PriorityQueueTwoListsTestOverall();
     };
 
+    class PriorityQueueTwoListTestAssign
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueTwoListTestAssign();
+        void test();
+    };
+
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
     /// </summary>

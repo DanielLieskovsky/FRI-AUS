@@ -79,11 +79,38 @@ namespace tests
     {
         addTest(new PriorityQueueLinkedListTestInterface());
     }
-
+    //---------------------------------------------------------------------------- two list
     PriorityQueueTwoListsTestOverall::PriorityQueueTwoListsTestOverall() :
         ComplexTest("PriorityQueueTwoLists")
     {
         addTest(new PriorityQueueTwoListsTestInterface());
+        addTest(new PriorityQueueTwoListTestAssign());
+    }
+
+    PriorityQueueTwoListTestAssign::PriorityQueueTwoListTestAssign() :
+        SimpleTest("Test assign PriorityQueueTwoList")
+    {
+    }
+
+    void PriorityQueueTwoListTestAssign::test()
+    {
+        structures::PriorityQueueTwoLists<int>* myTwoList = new structures::PriorityQueueTwoLists<int>();
+        structures::PriorityQueueTwoLists<int>* myCopyTwoList = new structures::PriorityQueueTwoLists<int>(*myTwoList);
+        for (int i = 0; i < 7; i++) {
+            myTwoList->push(50 - i, i + 10);
+            myCopyTwoList->push(2 + 2 * i, i + 100);
+        }
+
+        myTwoList->assign(*myCopyTwoList);
+
+        for (int i = 0; i < 7; i++) {
+            int item1 = myTwoList->pop();
+            int item2 = myCopyTwoList->pop();
+            SimpleTest::assertTrue(item1 == item2, std::to_string(item1) + " == " + std::to_string(item2));
+        }
+
+        delete myTwoList;
+        delete myCopyTwoList;
     }
 
     HeapTestOverall::HeapTestOverall() :
