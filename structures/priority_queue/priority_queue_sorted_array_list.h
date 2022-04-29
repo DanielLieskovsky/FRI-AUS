@@ -63,7 +63,7 @@ namespace structures
 	{
 		int predch = PriorityQueueList<T>::list_->size() -1;
 		PriorityQueueList<T>::list_->add(new PriorityQueueItem<T>(priority, data));
-		while (predch >= 0 && PriorityQueueList<T>::list_->at(predch)->getPriority() > priority ) {
+		while (predch >= 0 && PriorityQueueList<T>::list_->at(predch)->getPriority() < priority ) {
 			Utils::swap(
 				PriorityQueueList<T>::list_->at(predch),
 				PriorityQueueList<T>::list_->at(predch + 1)

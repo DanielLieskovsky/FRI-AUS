@@ -84,7 +84,7 @@ namespace structures
     template<typename T>
     void PriorityQueueLimitedSortedArrayList<T>::push(int priority, const T& data)
     {
-        if (capacity_ != PriorityQueueList<T>::size()) {
+        if (capacity_ > PriorityQueueList<T>::size()) {
             PriorityQueueSortedArrayList<T>::push(priority, data);
         }
         else {

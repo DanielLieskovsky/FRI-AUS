@@ -88,9 +88,12 @@ namespace structures
 	{
 		if (this != &other) {
 			PriorityQueueTwoLists<T>& otherPQTL = dynamic_cast<PriorityQueueTwoLists<T>&>(other);
-			clear();
-			shortList_ = new PriorityQueueLimitedSortedArrayList<T>(*otherPQTL.shortList_);
-			longList_ = new LinkedList<PriorityQueueItem<T>*>(*otherPQTL.longList_);
+			PriorityQueueTwoLists::~PriorityQueueTwoLists();
+			shortList_ = new PriorityQueueLimitedSortedArrayList<T>(*(otherPQTL.shortList_));
+			for (auto item : *otherPQTL.longList_)
+			{
+				longList_->add(new PriorityQueueItem<T>(*item));
+			}
 		}
 		return *this;
 	}
@@ -132,15 +135,21 @@ namespace structures
 		T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
 
 		if (shortList_->PriorityQueueList<T>::size() == 0) {
+
 			int num = (int)sqrt(longList_->size());
 			shortList_->trySetCapacity((num > 4) ? num : 4);
+
 			LinkedList<PriorityQueueItem<T>*>* pomocnyLongList = new LinkedList<PriorityQueueItem<T>*>();
+
 			while (longList_->size() != 0) {
+
 				PriorityQueueItem<T>* kopia = longList_->removeAt(0);
 				kopia = shortList_->pushAndRemove(kopia->getPriority(), kopia->accessData());
+
 				if (kopia != nullptr) {
 					pomocnyLongList->add(kopia);
 				}
+				delete kopia;
 			}
 			longList_ = pomocnyLongList;
 		}
@@ -151,7 +160,7 @@ namespace structures
 	T& PriorityQueueTwoLists<T>::peek()
 	{
 		//return (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->peek();
-		return shortList_->PriorityQueueList<T>::peek();
+		return shortList_->PriorityQueueSortedArrayList<T>::peek();
 	}
 
 	template<typename T>
