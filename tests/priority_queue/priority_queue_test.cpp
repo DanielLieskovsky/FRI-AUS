@@ -88,6 +88,10 @@ namespace tests
         addTest(new TestCopyConstructorPriorityQueueTwoLists());
         addTest(new TestAssignPriorityQueueTwoLists());
         addTest(new TestSizePriorityQueueTwoLists());
+        addTest(new TestPushPriorityQueueTwoLists());
+        addTest(new TestPopPriorityQueeuTwoLists());
+        addTest(new TestPeekPriorityQueueTwoLists());
+        addTest(new TestPeekPriorityPriorityQueueTwoLists());
     }
 
     TestConstructPriorityQueueTwoLists::TestConstructPriorityQueueTwoLists() 
@@ -262,6 +266,117 @@ namespace tests
 
         SimpleTest::assertTrue(twoList1->size() == (7 - 3 + 10), "Velkost je 14 (po pridani 10 prvkov)");
         SimpleTest::assertTrue(twoList2->size() == (10 - 3 + 10), "Velkost je 17 (po pridani 10 prvkov)");
+
+        delete twoList1;
+        delete twoList2;
+    }
+
+
+    TestPushPriorityQueueTwoLists::TestPushPriorityQueueTwoLists()
+        : SimpleTest("Test Push Two Lists")
+    {
+    }
+
+    void TestPushPriorityQueueTwoLists::test()
+    {
+
+        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+      
+        twoList1->push(22, 1500);
+        SimpleTest::assertTrue(twoList1->pop() == 1500, "Vlozila sa hodnota 1500 s prioritou 22");
+
+        for (int i = 0; i < 20; i++)
+        {
+            twoList1->push(23 + i, i * i);
+        }
+
+        SimpleTest::assertTrue(twoList1->size() == 20, "velkost po 20tich pushoch je realne 20");
+
+        delete twoList1;
+    }
+
+
+    TestPopPriorityQueeuTwoLists::TestPopPriorityQueeuTwoLists()
+        : SimpleTest("Test Pop Two Lists")
+    {
+    }
+
+    void TestPopPriorityQueeuTwoLists::test()
+    {
+        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+        twoList1->push(22, 1500);
+        SimpleTest::assertTrue(twoList1->pop() == 1500, "Vlozila sa hodnota 1500 s prioritou 22");
+
+        for (int i = 0; i < 20; i++)
+        {
+            twoList1->push(23 - i, i * i);
+        }
+
+        int popPocitadlo = 0;
+        int velkost = twoList1->size() - 1;
+
+        for (int i = velkost; i >= 0; i--)
+        {
+            SimpleTest::assertTrue(twoList1->pop() == (i*i), "Hodnota popnuteho sa rovna ocakavanej hodnote");
+
+            popPocitadlo++;
+        }
+
+        SimpleTest::assertTrue(popPocitadlo == 20, "Pop prebehol okcakavany pocet krat (20)");
+
+        delete twoList1;
+    }
+
+
+    TestPeekPriorityQueueTwoLists::TestPeekPriorityQueueTwoLists()
+        : SimpleTest("Test Peak Two Lists")
+    {
+    }
+
+    void TestPeekPriorityQueueTwoLists::test()
+    {
+        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+        for (int i = 0; i < 20; i++)
+        {
+            twoList1->push(23 - i, i * i);
+        }
+
+        SimpleTest::assertTrue(twoList1->peek() == (19*19), "Hodnota prvku s najvacsiou prioritou je 19^2");
+
+        twoList1->push(1, 12345);
+
+        SimpleTest::assertTrue(twoList1->peek() == 12345, "Hodnota prvku s najvacsiou prioritou je 12345");
+        SimpleTest::assertFalse(twoList1->peek() == (19 * 19), "Hodnota prvku s najvacsiou prioritou nie je 19^2 (stara hodnota)");
+
+        delete twoList1;
+    }
+
+
+    TestPeekPriorityPriorityQueueTwoLists::TestPeekPriorityPriorityQueueTwoLists()
+        : SimpleTest("Test PeekPriority Two Lists")
+    {
+    }
+
+    void TestPeekPriorityPriorityQueueTwoLists::test()
+    {
+        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+        for (int i = 0; i < 20; i++)
+        {
+            twoList1->push(23 - i, i * i);
+        }
+
+        SimpleTest::assertTrue(twoList1->peekPriority() == 4, "Najvacsia (najlepsia) priorita je 4");
+
+        twoList1->push(1, 12345);
+
+        SimpleTest::assertTrue(twoList1->peekPriority() == 1, "Najvacsia (najlepsia) priorita je 1");
+        SimpleTest::assertFalse(twoList1->peekPriority() == 4, "Najvacsia (najlepsia) priorita nie je (stara hodnota)");
+
+        delete twoList1;
     }
 
     //................................................................................................koniec two list

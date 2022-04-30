@@ -165,6 +165,38 @@ namespace tests
         void test() override;
     };
 
+    class TestPushPriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestPushPriorityQueueTwoLists();
+        void test() override;
+    };
+
+    class TestPopPriorityQueeuTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestPopPriorityQueeuTwoLists();
+        void test() override;
+    };
+
+    class TestPeekPriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestPeekPriorityQueueTwoLists();
+        void test() override;
+    };
+
+    class TestPeekPriorityPriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestPeekPriorityPriorityQueueTwoLists();
+        void test() override;
+    };
+
     //..............................................................................koniec testov two lists
 
     /// <summary>
