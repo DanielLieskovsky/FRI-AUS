@@ -61,7 +61,7 @@ namespace structures
 	template<typename T>
 	inline void PriorityQueueSortedArrayList<T>::push(int priority, const T& data)
 	{
-		int predch = PriorityQueueList<T>::list_->size() -1;
+		int predch = PriorityQueueList<T>::list_->size() -1;   //-........................................................
 		PriorityQueueList<T>::list_->add(new PriorityQueueItem<T>(priority, data));
 		while (predch >= 0 && PriorityQueueList<T>::list_->at(predch)->getPriority() < priority ) {
 			Utils::swap(

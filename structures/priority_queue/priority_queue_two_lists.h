@@ -88,8 +88,10 @@ namespace structures
 	{
 		if (this != &other) {
 			PriorityQueueTwoLists<T>& otherPQTL = dynamic_cast<PriorityQueueTwoLists<T>&>(other);
-			PriorityQueueTwoLists::~PriorityQueueTwoLists();
+			clear();
 			shortList_ = new PriorityQueueLimitedSortedArrayList<T>(*(otherPQTL.shortList_));
+			longList_ = new LinkedList<PriorityQueueItem<T>*>();
+
 			for (auto item : *otherPQTL.longList_)
 			{
 				longList_->add(new PriorityQueueItem<T>(*item));
@@ -134,23 +136,29 @@ namespace structures
 		
 		T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
 
-		if (shortList_->PriorityQueueList<T>::size() == 0) {
+		if (shortList_->PriorityQueueList<T>::size() == 0 && longList_->size()) {
 
 			int num = (int)sqrt(longList_->size());
 			shortList_->trySetCapacity((num > 4) ? num : 4);
 
 			LinkedList<PriorityQueueItem<T>*>* pomocnyLongList = new LinkedList<PriorityQueueItem<T>*>();
 
-			while (longList_->size() != 0) {
+			while (longList_->size() > 0) {
 
 				PriorityQueueItem<T>* kopia = longList_->removeAt(0);
-				kopia = shortList_->pushAndRemove(kopia->getPriority(), kopia->accessData());
+				
+				int prioritaKopie = kopia->getPriority();
+				auto dataKopie = kopia->accessData();
+
+				delete kopia;
+
+				kopia = shortList_->pushAndRemove(prioritaKopie, dataKopie);
 
 				if (kopia != nullptr) {
 					pomocnyLongList->add(kopia);
 				}
-				delete kopia;
 			}
+			delete longList_;
 			longList_ = pomocnyLongList;
 		}
 		return pomocna;

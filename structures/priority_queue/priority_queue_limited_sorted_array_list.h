@@ -95,7 +95,7 @@ namespace structures
     template<typename T>
     inline PriorityQueueItem<T>* PriorityQueueLimitedSortedArrayList<T>::pushAndRemove(int priority, T data)
     {
-        if (PriorityQueueList<T>::size() == 0) {
+       /* if (PriorityQueueList<T>::size() == 0) {
             PriorityQueueLimitedSortedArrayList<T>::push(priority, data);
             return nullptr;
         }
@@ -108,7 +108,16 @@ namespace structures
         }
         PriorityQueueItem<T>* result = PriorityQueueList<T>::list_->removeAt(0);
         PriorityQueueSortedArrayList<T>::push(priority, data);
-        return result;
+        return result;*/
+
+        PriorityQueueSortedArrayList<T>::push(priority, data);
+        if (capacity_ >= PriorityQueueList<T>::size()) 
+        {
+            return nullptr;
+        }
+        PriorityQueueItem<T>* pom = PriorityQueueList<T>::list_->removeAt(0);
+
+        return pom;
     }
 
     template<typename T>
@@ -124,7 +133,8 @@ namespace structures
     template<typename T>
     inline bool PriorityQueueLimitedSortedArrayList<T>::trySetCapacity(size_t capacity)
     {
-        if (capacity > capacity_) {
+        if (capacity > PriorityQueueList<T>::size()) //..............................................
+        {
             capacity_ = capacity;
             return true;
         }
