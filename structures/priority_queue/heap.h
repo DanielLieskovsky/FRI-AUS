@@ -119,7 +119,7 @@ namespace structures
 				int index = 0;
 				int indexSon = getGreaterSonIndex(index);
 
-				while (index != -1
+				while (indexSon != -1
 					&&
 					list_->at(index)->getPriority() >
 					list_->at(indexSon)->getPriority())
