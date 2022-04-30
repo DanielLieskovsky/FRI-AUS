@@ -121,6 +121,8 @@ namespace tests
         PriorityQueueLinkedListTestOverall();
     };
 
+    //----------------------------------------------------------------------------------testy two lists
+
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
     /// </summary>
@@ -131,13 +133,39 @@ namespace tests
         PriorityQueueTwoListsTestOverall();
     };
 
-    class PriorityQueueTwoListTestAssign
+    class TestConstructPriorityQueueTwoLists 
         : public SimpleTest
     {
     public:
-        PriorityQueueTwoListTestAssign();
+        TestConstructPriorityQueueTwoLists();
+        void test() override;
+    };
+
+    class TestCopyConstructorPriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestCopyConstructorPriorityQueueTwoLists();
+        void test() override;
+    };
+
+    class TestAssignPriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestAssignPriorityQueueTwoLists();
         void test();
     };
+
+    class TestSizePriorityQueueTwoLists
+        : public SimpleTest
+    {
+    public:
+        TestSizePriorityQueueTwoLists();
+        void test() override;
+    };
+
+    //..............................................................................koniec testov two lists
 
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
