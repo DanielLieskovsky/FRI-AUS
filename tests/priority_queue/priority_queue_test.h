@@ -220,6 +220,13 @@ namespace tests
         void test() override;
     };
 
+    class ScenarTestTwoLists
+        : public SimpleTest
+    {
+    public:
+        ScenarTestTwoLists();
+        void test() override;
+    };
     //..............................................................................koniec testov two lists
  
     //------------------------------------------------------------------------------zaciatok heap

@@ -1,4 +1,6 @@
 #include "priority_queue_test.h"
+#include <ctime>
+#include <cstdlib>
 #include "../../structures/priority_queue/heap.h"
 #include "../../structures/priority_queue/priority_queue_limited_sorted_array_list.h"
 #include "../../structures/priority_queue/priority_queue_linked_list.h"
@@ -92,6 +94,7 @@ namespace tests
         addTest(new TestPopPriorityQueeuTwoLists());
         addTest(new TestPeekPriorityQueueTwoLists());
         addTest(new TestPeekPriorityPriorityQueueTwoLists());
+        addTest(new ScenarTestTwoLists());
     }
 
     TestConstructPriorityQueueTwoLists::TestConstructPriorityQueueTwoLists() 
@@ -108,6 +111,7 @@ namespace tests
         //dopopovanie do konca
 
         structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+        //SimpleTest::assertTrue(twoList1->size() == 0, "Velkost je 0");
 
         for (int i = 0; i < 10; i++)
         {
@@ -377,6 +381,111 @@ namespace tests
         SimpleTest::assertFalse(twoList1->peekPriority() == 4, "Najvacsia (najlepsia) priorita nie je (stara hodnota)");
 
         delete twoList1;
+    }
+
+    ScenarTestTwoLists::ScenarTestTwoLists()
+        : SimpleTest("Scenarove testy pre Two Lists")
+    {
+    }
+
+    void ScenarTestTwoLists::test()
+    {
+        structures::PriorityQueueTwoLists<int>* twoListsTest = new structures::PriorityQueueTwoLists<int>();
+
+        srand(time(NULL));
+
+        int pocitadloPush = 0;
+        int pocitadloPop = 0;
+        int pocitadloPeek = 0;
+        
+
+        /*int maxPush = 35000;
+        int maxPop = 35000;
+        int maxPeek = 30000;*/
+
+        /*int maxPush = 50000;
+        int maxPop = 30000;
+        int maxPeek = 20000;*/
+
+        int maxPush = 70000;
+        int maxPop = 25000;
+        int maxPeek = 5000;
+
+        int operacia = 0;
+        int priorita = 0;
+        int hodnota = 0;
+
+        for (int i = 0; i < 100000; i++)
+        {
+            if (pocitadloPush < maxPush && pocitadloPop < maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = rand() % 3;
+            } 
+            else if (pocitadloPush == maxPush && pocitadloPop < maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = (rand() % 2) + 1;
+            }
+            else if (pocitadloPush < maxPush && pocitadloPop == maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = rand() % 2;
+                if (operacia == 1)
+                {
+                    operacia = 2;
+                }
+            }
+            else if (pocitadloPush < maxPush && pocitadloPop < maxPop && pocitadloPeek == maxPeek)
+            {
+                operacia = rand() % 2;
+            }
+            else if (pocitadloPush == maxPush && pocitadloPop == maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = 2;
+            }
+            else if (pocitadloPush == maxPush && pocitadloPop < maxPop && pocitadloPeek == maxPeek)
+            {
+                operacia = 1;
+            } 
+            else
+            {
+                operacia = 0;
+            }
+
+            priorita = rand() % 100000;
+            hodnota = rand() % 100000;
+
+            if (twoListsTest->size() == 0)
+            {
+                twoListsTest->push(priorita, hodnota);
+            }
+
+            switch (operacia)
+            {
+            case 0 :
+                SimpleTest::startStopwatch();
+                twoListsTest->push(priorita, hodnota);
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPush, SimpleTest::getElapsedTime(), "Push");
+                pocitadloPush++;
+                break;
+            case 1:
+                SimpleTest::startStopwatch();
+                twoListsTest->pop();
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPop, SimpleTest::getElapsedTime(), "Pop");
+                pocitadloPop++;
+                break;
+            case 2 :
+                SimpleTest::startStopwatch();
+                twoListsTest->peek();
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPeek, SimpleTest::getElapsedTime(), "Peek");
+                pocitadloPeek++;
+                break;
+            default:
+                break;
+            }
+        }
+        delete twoListsTest;
     }
 
     //................................................................................................koniec two list
