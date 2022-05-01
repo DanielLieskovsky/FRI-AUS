@@ -132,7 +132,9 @@ namespace tests
     public:
         PriorityQueueTwoListsTestOverall();
     };
-
+    /// <summary>
+    /// Test spravneho vytvorenia Two Lists
+    /// </summary>
     class TestConstructPriorityQueueTwoLists 
         : public SimpleTest
     {
@@ -141,6 +143,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test kopirovacieho konstruktora Two Lists
+    /// </summary>
     class TestCopyConstructorPriorityQueueTwoLists
         : public SimpleTest
     {
@@ -149,6 +154,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test spravneho priradenia Two Lists
+    /// </summary>
     class TestAssignPriorityQueueTwoLists
         : public SimpleTest
     {
@@ -157,6 +165,9 @@ namespace tests
         void test();
     };
 
+    /// <summary>
+    /// Test spravnej velkosti Two Lists
+    /// </summary>
     class TestSizePriorityQueueTwoLists
         : public SimpleTest
     {
@@ -165,6 +176,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test push Two Lists (pridanie prvku)
+    /// </summary>
     class TestPushPriorityQueueTwoLists
         : public SimpleTest
     {
@@ -173,6 +187,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test pop Two Lists (odobranie prvku)
+    /// </summary>
     class TestPopPriorityQueeuTwoLists
         : public SimpleTest
     {
@@ -181,6 +198,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test spravnej hodnoty prvku s najlepsou prioritou
+    /// </summary>
     class TestPeekPriorityQueueTwoLists
         : public SimpleTest
     {
@@ -189,6 +209,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test najlepsej priority
+    /// </summary>
     class TestPeekPriorityPriorityQueueTwoLists
         : public SimpleTest
     {
@@ -211,6 +234,9 @@ namespace tests
         HeapTestOverall();
     };
 
+    /// <summary>
+    /// Test spravneho vytvorenia Heap
+    /// </summary>
     class TestConstructHeap
         : public SimpleTest
     {
@@ -219,6 +245,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test kopirovacieho konstruktoru Heap
+    /// </summary>
     class TestCopyConstructHeap
         : public SimpleTest
     {
@@ -227,6 +256,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test spravneho priradenia Heap
+    /// </summary>
     class TestAssingHeap
         : public SimpleTest
     {
@@ -235,6 +267,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test pop Heap (pridanie prvku)
+    /// </summary>
     class TestPopHeap
         : public SimpleTest
     {
@@ -243,6 +278,9 @@ namespace tests
         void test() override;
     };
 
+    /// <summary>
+    /// Test push Heap (odobratie prvku)
+    /// </summary>
     class TestPushHeap
         : public SimpleTest
     {
