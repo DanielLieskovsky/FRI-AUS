@@ -198,6 +198,8 @@ namespace tests
     };
 
     //..............................................................................koniec testov two lists
+ 
+    //------------------------------------------------------------------------------zaciatok heap
 
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
@@ -208,6 +210,48 @@ namespace tests
     public:
         HeapTestOverall();
     };
+
+    class TestConstructHeap
+        : public SimpleTest
+    {
+    public:
+        TestConstructHeap();
+        void test() override;
+    };
+
+    class TestCopyConstructHeap
+        : public SimpleTest
+    {
+    public:
+        TestCopyConstructHeap();
+        void test() override;
+    };
+
+    class TestAssingHeap
+        : public SimpleTest
+    {
+    public:
+        TestAssingHeap();
+        void test() override;
+    };
+
+    class TestPopHeap
+        : public SimpleTest
+    {
+    public:
+        TestPopHeap();
+        void test() override;
+    };
+
+    class TestPushHeap
+        : public SimpleTest
+    {
+    public:
+        TestPushHeap();
+        void test() override;
+    };
+
+    //...............................................................................koniec heap
 
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju prioritny front.

@@ -381,11 +381,203 @@ namespace tests
 
     //................................................................................................koniec two list
 
+    //------------------------------------------------------------------------------------------------zaciatok heap
+
     HeapTestOverall::HeapTestOverall() :
         ComplexTest("Heap")
     {
         addTest(new HeapTestInterface());
+        addTest(new TestConstructHeap());
+        addTest(new TestCopyConstructHeap());
+        addTest(new TestAssingHeap());
+        addTest(new TestPopHeap());
+        addTest(new TestPushHeap());
     }
+
+
+    TestConstructHeap::TestConstructHeap()
+        : SimpleTest("Test konstruktoru Heap")
+    {
+    }
+
+    void TestConstructHeap::test()
+    {
+        structures::Heap<int>* testHeap1 = new structures::Heap<int>();
+
+        testHeap1->push(0, 'P');
+        testHeap1->push(2, 'I');
+        testHeap1->push(6, 'D');
+        testHeap1->push(7, 'E');
+        testHeap1->push(4, 'H');
+        testHeap1->push(9, 'O');
+        testHeap1->push(7, 'J');
+        testHeap1->push(9, 'B');
+        testHeap1->push(7, 'K');
+        testHeap1->push(6, 'U');
+        testHeap1->push(6, 'X');
+        testHeap1->push(9, 'A');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'P', "hodnota bola P");
+        SimpleTest::assertTrue(testHeap1->pop() == 'I', "hodnota bola I");
+        SimpleTest::assertTrue(testHeap1->pop() == 'H', "hodnota bola H");
+        SimpleTest::assertTrue(testHeap1->pop() == 'D', "hodnota bola D (priorita 6 sa nachadza v heape viac krat ale toto bolo vlozene najskor)");
+
+        testHeap1->push(1, 'Z');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'Z', "hodnota bola Z (po pridani prvku s najnizsou prioritou)");
+
+        delete testHeap1;
+    }
+
+
+    TestCopyConstructHeap::TestCopyConstructHeap()
+        : SimpleTest("Test CopyConstructor Heap")
+    {
+    }
+
+    void TestCopyConstructHeap::test()
+    {
+        structures::Heap<int>* testHeap1 = new structures::Heap<int>();
+
+        testHeap1->push(0, 'P');
+        testHeap1->push(2, 'I');
+        testHeap1->push(6, 'D');
+        testHeap1->push(7, 'E');
+        testHeap1->push(4, 'H');
+        testHeap1->push(9, 'O');
+        testHeap1->push(7, 'J');
+        testHeap1->push(9, 'B');
+        testHeap1->push(7, 'K');
+        testHeap1->push(6, 'U');
+        testHeap1->push(6, 'X');
+        testHeap1->push(9, 'A');
+
+        structures::Heap<int>* testHeap2 = new structures::Heap<int>(*testHeap1);
+
+        SimpleTest::assertTrue(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa rovnaju (0,P)");
+        SimpleTest::assertTrue(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa rovnaju (2,I)");
+
+        testHeap2->push(1, 'Z');
+
+        SimpleTest::assertFalse(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa nerovnaju (4,H) != (1,Z)");
+
+        delete testHeap1;
+        delete testHeap2;
+    }
+
+    TestAssingHeap::TestAssingHeap()
+        : SimpleTest("Test Assign Heap")
+    {
+    }
+
+    void TestAssingHeap::test()
+    {
+        structures::Heap<int>* testHeap1 = new structures::Heap<int>();
+
+        testHeap1->push(0, 'P');
+        testHeap1->push(2, 'I');
+        testHeap1->push(6, 'D');
+        testHeap1->push(7, 'E');
+        testHeap1->push(4, 'H');
+        testHeap1->push(9, 'O');
+        testHeap1->push(7, 'J');
+        testHeap1->push(9, 'B');
+        testHeap1->push(7, 'K');
+        testHeap1->push(6, 'U');
+        testHeap1->push(6, 'X');
+        testHeap1->push(9, 'A');
+
+        structures::Heap<int>* testHeap2 = new structures::Heap<int>();
+
+        testHeap2->assign(*testHeap1);
+
+        SimpleTest::assertTrue(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa rovnaju (0,P)");
+        SimpleTest::assertTrue(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa rovnaju (2,I)");
+
+        testHeap2->push(1, 'Z');
+
+        SimpleTest::assertFalse(testHeap1->pop() == testHeap2->pop(), "Hodnoty sa nerovnaju (4,H) != (1,Z)");
+
+        delete testHeap1;
+        delete testHeap2;
+    }
+
+
+    TestPopHeap::TestPopHeap()
+        : SimpleTest("Test Pop Heap")
+    {
+    }
+
+    void TestPopHeap::test()
+    {
+        structures::Heap<int>* testHeap1 = new structures::Heap<int>();
+
+        testHeap1->push(0, 'P');
+        testHeap1->push(2, 'I');
+        testHeap1->push(6, 'D');
+        testHeap1->push(7, 'E');
+        testHeap1->push(4, 'H');
+        testHeap1->push(9, 'O');
+        testHeap1->push(7, 'J');
+        testHeap1->push(9, 'B');
+        testHeap1->push(7, 'K');
+        testHeap1->push(6, 'U');
+        testHeap1->push(6, 'X');
+        testHeap1->push(9, 'A');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'P', "hodnota bola P");
+        SimpleTest::assertTrue(testHeap1->pop() == 'I', "hodnota bola I");
+        SimpleTest::assertTrue(testHeap1->pop() == 'H', "hodnota bola H");
+        SimpleTest::assertTrue(testHeap1->pop() == 'D', "hodnota bola D (priorita 6 sa nachadza v heape viac krat ale toto bolo vlozene najskor)");
+
+        testHeap1->push(1, 'Z');
+        testHeap1->push(1, 'X');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'Z', "hodnota bola Z (po pridani prvku s prioritou 1 ako prveho)");
+        SimpleTest::assertTrue(testHeap1->pop() == 'X', "hodnota bola X (po pridani prvku s prioritou 1 ako druheho)");
+
+        delete testHeap1;
+    }
+
+
+    TestPushHeap::TestPushHeap()
+        : SimpleTest("Test Push Heap")
+    {
+    }
+
+    void TestPushHeap::test()
+    {
+        structures::Heap<int>* testHeap1 = new structures::Heap<int>();
+
+        testHeap1->push(0, 'P');
+        testHeap1->push(2, 'I');
+        testHeap1->push(6, 'D');
+        testHeap1->push(7, 'E');
+        testHeap1->push(4, 'H');
+        testHeap1->push(9, 'O');
+        testHeap1->push(7, 'J');
+        testHeap1->push(9, 'B');
+        testHeap1->push(7, 'K');
+        testHeap1->push(6, 'U');
+        testHeap1->push(6, 'X');
+        testHeap1->push(9, 'A');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'P', "hodnota bola P");
+        SimpleTest::assertTrue(testHeap1->pop() == 'I', "hodnota bola I");
+        SimpleTest::assertTrue(testHeap1->pop() == 'H', "hodnota bola H");
+
+        testHeap1->push(1, 'Z');
+        testHeap1->push(2, 'X');
+        testHeap1->push(3, 'Y');
+
+        SimpleTest::assertTrue(testHeap1->pop() == 'Z', "hodnota bola Z");
+        SimpleTest::assertTrue(testHeap1->pop() == 'X', "hodnota bola X");
+        SimpleTest::assertTrue(testHeap1->pop() == 'Y', "hodnota bola Y");
+
+        delete testHeap1;
+    }
+
+    //................................................................................................koniec heap
 
     PriorityQueueTestOverall::PriorityQueueTestOverall() :
         ComplexTest("PriorityQueue")
