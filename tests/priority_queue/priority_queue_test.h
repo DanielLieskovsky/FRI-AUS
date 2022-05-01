@@ -296,6 +296,14 @@ namespace tests
         void test() override;
     };
 
+    class ScenarTestHeap
+        : public SimpleTest
+    {
+    public:
+        ScenarTestHeap();
+        void test() override;
+    };
+
     //...............................................................................koniec heap
 
     /// <summary>

@@ -501,6 +501,7 @@ namespace tests
         addTest(new TestAssingHeap());
         addTest(new TestPopHeap());
         addTest(new TestPushHeap());
+        addTest(new ScenarTestHeap());
     }
 
 
@@ -684,6 +685,111 @@ namespace tests
         SimpleTest::assertTrue(testHeap1->pop() == 'Y', "hodnota bola Y");
 
         delete testHeap1;
+    }
+
+    ScenarTestHeap::ScenarTestHeap()
+        : SimpleTest("Scenarove testy pre Heap")
+    {
+    }
+
+    void ScenarTestHeap::test()
+    {
+        structures::Heap<int>* heapTest = new structures::Heap<int>();
+
+        srand(time(NULL));
+
+        int pocitadloPush = 0;
+        int pocitadloPop = 0;
+        int pocitadloPeek = 0;
+
+
+        /*int maxPush = 35000;
+        int maxPop = 35000;
+        int maxPeek = 30000;*/
+
+        /*int maxPush = 50000;
+        int maxPop = 30000;
+        int maxPeek = 20000;*/
+
+        int maxPush = 70000;
+        int maxPop = 25000;
+        int maxPeek = 5000;
+
+        int operacia = 0;
+        int priorita = 0;
+        int hodnota = 0;
+
+        for (int i = 0; i < 100000; i++)
+        {
+            if (pocitadloPush < maxPush && pocitadloPop < maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = rand() % 3;
+            }
+            else if (pocitadloPush == maxPush && pocitadloPop < maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = (rand() % 2) + 1;
+            }
+            else if (pocitadloPush < maxPush && pocitadloPop == maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = rand() % 2;
+                if (operacia == 1)
+                {
+                    operacia = 2;
+                }
+            }
+            else if (pocitadloPush < maxPush && pocitadloPop < maxPop && pocitadloPeek == maxPeek)
+            {
+                operacia = rand() % 2;
+            }
+            else if (pocitadloPush == maxPush && pocitadloPop == maxPop && pocitadloPeek < maxPeek)
+            {
+                operacia = 2;
+            }
+            else if (pocitadloPush == maxPush && pocitadloPop < maxPop && pocitadloPeek == maxPeek)
+            {
+                operacia = 1;
+            }
+            else
+            {
+                operacia = 0;
+            }
+
+            priorita = rand() % 100000;
+            hodnota = rand() % 100000;
+
+            if (heapTest->size() == 0)
+            {
+                heapTest->push(priorita, hodnota);
+            }
+
+            switch (operacia)
+            {
+            case 0:
+                SimpleTest::startStopwatch();
+                heapTest->push(priorita, hodnota);
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPush, SimpleTest::getElapsedTime(), "Push");
+                pocitadloPush++;
+                break;
+            case 1:
+                SimpleTest::startStopwatch();
+                heapTest->pop();
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPop, SimpleTest::getElapsedTime(), "Pop");
+                pocitadloPop++;
+                break;
+            case 2:
+                SimpleTest::startStopwatch();
+                heapTest->peek();
+                SimpleTest::stopStopwatch();
+                structures::Logger::getInstance().logDuration(pocitadloPeek, SimpleTest::getElapsedTime(), "Peek");
+                pocitadloPeek++;
+                break;
+            default:
+                break;
+            }
+        }
+        delete heapTest;
     }
 
     //................................................................................................koniec heap
