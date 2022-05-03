@@ -17,6 +17,8 @@ namespace structures
 		/// <summary> Konstruktor. </summary>
 		PriorityQueueTwoLists();
 
+		PriorityQueueTwoLists(int smallListCapacity);
+
 		PriorityQueueTwoLists(PriorityQueueTwoLists<T>& other);
 		~PriorityQueueTwoLists();
 
@@ -64,6 +66,13 @@ namespace structures
 	template<typename T>
 	PriorityQueueTwoLists<T>::PriorityQueueTwoLists() :
 		shortList_(new PriorityQueueLimitedSortedArrayList<T>()),
+		longList_(new LinkedList<PriorityQueueItem<T>*>())
+	{
+	}
+
+	template<typename T>
+	inline PriorityQueueTwoLists<T>::PriorityQueueTwoLists(int smallListCapacity) :
+		shortList_(new PriorityQueueLimitedSortedArrayList<T>(smallListCapacity)),
 		longList_(new LinkedList<PriorityQueueItem<T>*>())
 	{
 	}
@@ -125,6 +134,19 @@ namespace structures
 		if (item != nullptr) {
 			longList_->add(item);
 		}
+
+		/*if (longList_->size() == 0 || shortList_->minPriority() > priority)
+		{
+			auto odstraneny = shortList_->pushAndRemove(priority, data);
+			if (odstraneny == nullptr)
+			{
+				longList_->add(odstraneny);
+			}
+		}
+		else
+		{
+			longList_->add(new PriorityQueueItem<T>(priority, data));
+		}*/
 	}
 
 	template<typename T>
@@ -136,7 +158,7 @@ namespace structures
 		
 		T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
 
-		if (shortList_->PriorityQueueList<T>::size() == 0 && longList_->size()) {
+		if (shortList_->PriorityQueueList<T>::size() == 0 && longList_->size() != 0) {
 
 			int num = (int)sqrt(longList_->size());
 			shortList_->trySetCapacity((num > 4) ? num : 4);

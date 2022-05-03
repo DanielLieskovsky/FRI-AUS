@@ -14,6 +14,12 @@ namespace structures
         /// <summary> Konstruktor. </summary>
         PriorityQueueLimitedSortedArrayList();
 
+        /// <summary>
+        /// Konstruktor ktorý vytvorí PQLSAL danej velkosti
+        /// </summary>
+        /// <param name="capacity"> kapacita na ktoru nastavim dany list</param>
+        PriorityQueueLimitedSortedArrayList(int capacity);   
+
         /// <summary> Kopirovaci konstruktor. </summary>
         /// <param name = "other"> Prioritny front implementovany utriednym ArrayList-om s obmedzenou kapacitou, z ktoreho sa prevezmu vlastnosti. </param>
         PriorityQueueLimitedSortedArrayList(PriorityQueueLimitedSortedArrayList<T>& other);
@@ -61,6 +67,13 @@ namespace structures
     PriorityQueueLimitedSortedArrayList<T>::PriorityQueueLimitedSortedArrayList() :
         PriorityQueueSortedArrayList<T>(),
         capacity_(4)
+    {
+    }
+
+    template<typename T>
+    inline PriorityQueueLimitedSortedArrayList<T>::PriorityQueueLimitedSortedArrayList(int capacity) :
+        PriorityQueueSortedArrayList<T>(),
+        capacity_(capacity)
     {
     }
 
@@ -133,7 +146,7 @@ namespace structures
     template<typename T>
     inline bool PriorityQueueLimitedSortedArrayList<T>::trySetCapacity(size_t capacity)
     {
-        if (capacity > PriorityQueueList<T>::size()) //..............................................
+        if (capacity > PriorityQueueList<T>::size()) 
         {
             capacity_ = capacity;
             return true;

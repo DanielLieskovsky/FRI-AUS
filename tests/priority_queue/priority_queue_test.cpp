@@ -58,23 +58,264 @@ namespace tests
         return new structures::Heap<int>();
     }
 
+    //.............................................................................................PQUAL zaciatok
     PriorityQueueUnsortedArrayListTestOverall::PriorityQueueUnsortedArrayListTestOverall() :
         ComplexTest("PriorityQueueUnsortedArray")
     {
         addTest(new PriorityQueueUnsortedArrayListTestInterface());
+        addTest(new PriorityQueueUnsortedArrayListConstructorTest());
+        addTest(new PriorityQueueUnsortedArrayListCopyConstructorTest());
     }
 
+
+    PriorityQueueUnsortedArrayListConstructorTest::PriorityQueueUnsortedArrayListConstructorTest()
+        : SimpleTest("Test konstruktora PQUAL")
+    {
+    }
+
+    void PriorityQueueUnsortedArrayListConstructorTest::test()
+    {
+        //srand(time(NULL));
+        int priorita = 0;
+
+        structures::PriorityQueueUnsortedArrayList<int>* PQUALtest = new structures::PriorityQueueUnsortedArrayList<int>();
+
+        for (int i = 0; i < 8; i++)
+        {
+            priorita = rand() % 10;
+            PQUALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        SimpleTest::assertTrue(PQUALtest->size() == 8, "Velkost je skutocne 8");
+
+        while (PQUALtest->size() != 0)
+        {
+            int popnuty = PQUALtest->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQUALtest;
+    }
+
+    PriorityQueueUnsortedArrayListCopyConstructorTest::PriorityQueueUnsortedArrayListCopyConstructorTest()
+        : SimpleTest("Test copy constructor")
+    {
+    }
+
+    void PriorityQueueUnsortedArrayListCopyConstructorTest::test()
+    {
+        structures::PriorityQueueUnsortedArrayList<int>* PQUALtest = new structures::PriorityQueueUnsortedArrayList<int>();
+
+        int priorita = 0;
+
+        for (int i = 0; i < 8; i++)
+        {
+            priorita = rand() % 10;
+            PQUALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        SimpleTest::assertTrue(PQUALtest->size() == 8, "Velkost je skutocne 8");
+
+        structures::PriorityQueueUnsortedArrayList<int>* PQUALtest2 = new structures::PriorityQueueUnsortedArrayList<int>(*PQUALtest);
+
+        SimpleTest::assertTrue(true, "Prebehlo priradenie 1->2");
+
+        delete PQUALtest;
+
+        SimpleTest::assertTrue(true, "Prebehlo odstranenie 1.");
+
+        SimpleTest::assertTrue(PQUALtest2->size() == 8, "Velkost je skutocne 8");
+
+        while (PQUALtest2->size() != 0)
+        {
+            int popnuty = PQUALtest2->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQUALtest2;
+    }
+    //---------------------------------------------------------------------------------------------PQUAL koniec
+
+    //.............................................................................................PQSAL zaciatok
     PriorityQueueSortedArrayListTestOverall::PriorityQueueSortedArrayListTestOverall() :
         ComplexTest("PriorityQueueSortedArrayList")
     {
         addTest(new PriorityQueueSortedArrayListTestInterface());
+        addTest(new PriorityQueueSortedArrayListConstructorTest());
+        addTest(new PriorityQueueSortedArrayListCopyConstructorTest());
     }
+
+    PriorityQueueSortedArrayListConstructorTest::PriorityQueueSortedArrayListConstructorTest()
+        : SimpleTest("Test Constructor")
+    {
+    }
+
+    void PriorityQueueSortedArrayListConstructorTest::test()
+    {
+        structures::PriorityQueueSortedArrayList<int>* PQSALtest = new structures::PriorityQueueSortedArrayList<int>();
+
+        int priorita = 0;
+
+        for (int i = 0; i < 8; i++)
+        {
+            priorita = rand() % 10;
+            PQSALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        PQSALtest->push(-1, 10);
+        PQSALtest->push(2, 11);
+        PQSALtest->push(10, 12);
+
+        int popnuty = 0;
+
+        while (PQSALtest->size() != 0)
+        {
+            popnuty = PQSALtest->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQSALtest;
+    }
+
+    PriorityQueueSortedArrayListCopyConstructorTest::PriorityQueueSortedArrayListCopyConstructorTest()
+        : SimpleTest("Test Copy Constructor")
+    {
+    }
+
+    void PriorityQueueSortedArrayListCopyConstructorTest::test()
+    {
+        structures::PriorityQueueSortedArrayList<int>* PQSALtest = new structures::PriorityQueueSortedArrayList<int>();
+
+        int priorita = 0;
+
+        for (int i = 0; i < 8; i++)
+        {
+            priorita = rand() % 10;
+            PQSALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        SimpleTest::assertTrue(PQSALtest->size() == 8, "Velkost je skutocne 8");
+
+        structures::PriorityQueueSortedArrayList<int>* PQSALtest2 = new structures::PriorityQueueSortedArrayList<int>(*PQSALtest);
+
+        SimpleTest::assertTrue(true, "Prebehlo priradenie 1->2");
+
+        delete PQSALtest;
+
+        SimpleTest::assertTrue(true, "Prebehlo odstranenie 1.");
+
+        SimpleTest::assertTrue(PQSALtest2->size() == 8, "Velkost je skutocne 8");
+
+        while (PQSALtest2->size() != 0)
+        {
+            int popnuty = PQSALtest2->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQSALtest2;
+    }
+
+    //---------------------------------------------------------------------------------------------PQSAL koniec
+
+    //.............................................................................................PQLSAL zaciatok
 
     PriorityQueueLimitedSortedArrayListTestOverall::PriorityQueueLimitedSortedArrayListTestOverall() :
         ComplexTest("PriorityQueueLimitedSortedArrayList")
     {
         addTest(new PriorityQueueLimitedSortedArrayListTestInterface());
+        addTest(new PriorityQueueLimitedSortedArrayListConstructorTest());
+        addTest(new PriorityQueueLimitedSortedArrayListCopyConstructorTest());
     }
+
+
+    PriorityQueueLimitedSortedArrayListConstructorTest::PriorityQueueLimitedSortedArrayListConstructorTest()
+        : SimpleTest("Test constructor")
+    {
+    }
+
+    void PriorityQueueLimitedSortedArrayListConstructorTest::test()
+    {
+        structures::PriorityQueueLimitedSortedArrayList<int>* PQLSALtest = new structures::PriorityQueueLimitedSortedArrayList<int>();
+        structures::PriorityQueueLimitedSortedArrayList<int>* PQLSALtest2 = new structures::PriorityQueueLimitedSortedArrayList<int>(7);
+
+        int priorita = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            priorita = rand() % 10;
+            PQLSALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        for (int i = 0; i < 7; i++)
+        {
+            priorita = rand() % 10;
+            PQLSALtest2->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        int popnuty = 0;
+
+        while (PQLSALtest->size() != 0)
+        {
+            popnuty = PQLSALtest->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        while (PQLSALtest2->size() != 0)
+        {
+            popnuty = PQLSALtest2->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQLSALtest2;
+        delete PQLSALtest;
+    }
+
+    PriorityQueueLimitedSortedArrayListCopyConstructorTest::PriorityQueueLimitedSortedArrayListCopyConstructorTest()
+        : SimpleTest("Test Copy constructor")
+    {
+    }
+
+    void PriorityQueueLimitedSortedArrayListCopyConstructorTest::test()
+    {
+        structures::PriorityQueueLimitedSortedArrayList<int>* PQLSALtest = new structures::PriorityQueueLimitedSortedArrayList<int>();
+
+        int priorita = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            priorita = rand() % 10;
+            PQLSALtest->push(priorita, i);
+            SimpleTest::assertTrue(true, "Push prvku: " + std::to_string(i) + " s prioritou: " + std::to_string(priorita));
+        }
+
+        SimpleTest::assertTrue(PQLSALtest->size() == 4, "Velkost je skutocne 4");
+
+        structures::PriorityQueueLimitedSortedArrayList<int>* PQLSALtest2 = new structures::PriorityQueueLimitedSortedArrayList<int>(*PQLSALtest);
+
+        SimpleTest::assertTrue(true, "Prebehlo priradenie 1->2");
+
+        delete PQLSALtest;
+
+        SimpleTest::assertTrue(true, "Prebehlo odstranenie 1.");
+
+        SimpleTest::assertTrue(PQLSALtest2->size() == 4, "Velkost je skutocne 4");
+
+        while (PQLSALtest2->size() != 0)
+        {
+            int popnuty = PQLSALtest2->pop();
+            SimpleTest::assertTrue(true, "pop prvku " + std::to_string(popnuty));
+        }
+
+        delete PQLSALtest2;
+    }
+
+    //---------------------------------------------------------------------------------------------PQLSAL koniec
 
     PriorityQueueLinkedListTestOverall::PriorityQueueLinkedListTestOverall() :
         ComplexTest("PriorityQueueLinkedList")
@@ -95,6 +336,9 @@ namespace tests
         addTest(new TestPeekPriorityQueueTwoLists());
         addTest(new TestPeekPriorityPriorityQueueTwoLists());
         addTest(new ScenarTestTwoLists());
+        addTest(new TimePQTLPush());
+        addTest(new TimePQTLPop());
+        addTest(new TimePQTLPeek());
     }
 
     TestConstructPriorityQueueTwoLists::TestConstructPriorityQueueTwoLists() 
@@ -488,6 +732,128 @@ namespace tests
         delete twoListsTest;
     }
 
+    TimePQTLPush::TimePQTLPush()
+        : SimpleTest("Casova zlozitost Push pre PQTL")
+    {
+    }
+
+    void TimePQTLPush::test()
+    {
+        srand(time(NULL));
+        int priorita = 0;
+        int data = 0;
+        DurationTime cas;
+
+        //naplnim PQ podla toho v akom kroku som a potom 100 krat zopakujem operaciu
+
+        for (int i = 1; i < 100002; i = i + 1000)
+        {
+            structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+            for (int j = 0; j < i; j++)
+            {
+                priorita = rand() % i;
+                data = rand() % 1000;
+
+                twoList1->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                priorita = rand() % i;
+                data = rand() % 1000;
+
+                SimpleTest::startStopwatch();
+                twoList1->push(priorita, data);
+                SimpleTest::stopStopwatch();
+                cas = cas + SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Push");
+            delete twoList1;
+            cas = (DurationTime)0;
+        }
+    }
+
+
+    TimePQTLPop::TimePQTLPop()
+        : SimpleTest("Casova zlozitost Pop pre PQTL")
+    {
+    }
+
+    void TimePQTLPop::test()
+    {
+        srand(time(NULL));
+        int priorita = 0;
+        int data = 0;
+        DurationTime cas;
+
+
+        for (int i = 101; i < 100002; i = i + 1000)
+        {
+            structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+            for (int j = 0; j < i; j++)
+            {
+                priorita = rand() % i;
+                data = rand() % 1000;
+
+                twoList1->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                SimpleTest::startStopwatch();
+                twoList1->pop();
+                SimpleTest::stopStopwatch();
+                cas = cas + SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Pop");
+            delete twoList1;
+            cas = (DurationTime)0;
+        }
+    }
+
+    TimePQTLPeek::TimePQTLPeek()
+        : SimpleTest("Casova zlozitost Peek pre PQTL")
+    {
+    }
+
+    void TimePQTLPeek::test()
+    {
+        srand(time(NULL));
+        int priorita = 0;
+        int data = 0;
+        DurationTime cas;
+
+
+        for (int i = 101; i < 100002; i = i + 1000)
+        {
+            structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>();
+
+            for (int j = 0; j < i; j++)
+            {
+                priorita = rand() % 100000;
+                data = rand() % 100000;
+
+                twoList1->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                SimpleTest::startStopwatch();
+                twoList1->peek();
+                SimpleTest::stopStopwatch();
+                cas = cas + SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Peek");
+            delete twoList1;
+            cas = (DurationTime)0;
+        }
+    }
+
     //................................................................................................koniec two list
 
     //------------------------------------------------------------------------------------------------zaciatok heap
@@ -791,6 +1157,7 @@ namespace tests
         }
         delete heapTest;
     }
+
 
     //................................................................................................koniec heap
 

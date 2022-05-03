@@ -44,9 +44,6 @@ namespace structures
 
 	template<typename T>
 	inline PriorityQueueSortedArrayList<T>::PriorityQueueSortedArrayList(PriorityQueueSortedArrayList<T>& other) :
-		/*PriorityQueueList<T>(
-			new ArrayList<PriorityQueueItem<T>*>(
-				dynamic_cast<ArrayList<PriorityQueueItem<T>*>&>(*other.list_)))*/
 		PriorityQueueSortedArrayList<T>()
 	{
 		assign(other);
@@ -55,13 +52,13 @@ namespace structures
 	template<typename T>
 	inline Structure& PriorityQueueSortedArrayList<T>::assign(Structure& other)
 	{
-		return PriorityQueueList<T>::assign(dynamic_cast<PriorityQueueList<T>&>(other));
+		return PriorityQueueList<T>::assign(dynamic_cast<PriorityQueueSortedArrayList<T>&>(other));
 	}
 
 	template<typename T>
 	inline void PriorityQueueSortedArrayList<T>::push(int priority, const T& data)
 	{
-		int predch = PriorityQueueList<T>::list_->size() -1;   //-........................................................
+		/*int predch = PriorityQueueList<T>::list_->size() -1;   
 		PriorityQueueList<T>::list_->add(new PriorityQueueItem<T>(priority, data));
 		while (predch >= 0 && PriorityQueueList<T>::list_->at(predch)->getPriority() < priority ) {
 			Utils::swap(
@@ -69,7 +66,36 @@ namespace structures
 				PriorityQueueList<T>::list_->at(predch + 1)
 			);
 			predch--;
+		}*/
+
+		int indexPozicie = list_->size() - 1;
+
+		if (list_->size() != 0)
+		{
+			while (indexPozicie >= 0 && list_->at(indexPozicie)->getPriority() < priority)
+			{
+				indexPozicie--;
+			}
+
+			if (indexPozicie == list_->size() - 1 || indexPozicie == - 2)
+			{
+				list_->add(new PriorityQueueItem<T>(priority, data));
+			}
+			else if (indexPozicie == -1)
+			{
+				list_->insert(new PriorityQueueItem<T>(priority, data), 0);
+			}
+			else
+			{
+				list_->insert(new PriorityQueueItem<T>(priority, data), indexPozicie + 1);
+			}
 		}
+		else 
+		{
+			list_->add(new PriorityQueueItem<T>(priority, data));
+		}
+
+		
 	}
 
 	template<typename T>

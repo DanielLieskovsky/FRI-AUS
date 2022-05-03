@@ -91,6 +91,22 @@ namespace tests
         PriorityQueueUnsortedArrayListTestOverall();
     };
 
+    class PriorityQueueUnsortedArrayListConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueUnsortedArrayListConstructorTest();
+        void test() override;
+    };
+
+    class PriorityQueueUnsortedArrayListCopyConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueUnsortedArrayListCopyConstructorTest();
+        void test() override;
+    };
+
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
     /// </summary>
@@ -101,6 +117,22 @@ namespace tests
         PriorityQueueSortedArrayListTestOverall();
     };
 
+    class PriorityQueueSortedArrayListConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueSortedArrayListConstructorTest();
+        void test() override;
+    };
+
+    class PriorityQueueSortedArrayListCopyConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueSortedArrayListCopyConstructorTest();
+        void test() override;
+    };
+
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju dany prioritny front.
     /// </summary>
@@ -109,6 +141,22 @@ namespace tests
     {
     public:
         PriorityQueueLimitedSortedArrayListTestOverall();
+    };
+
+    class PriorityQueueLimitedSortedArrayListConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueLimitedSortedArrayListConstructorTest();
+        void test() override;
+    };
+
+    class PriorityQueueLimitedSortedArrayListCopyConstructorTest
+        : public SimpleTest
+    {
+    public:
+        PriorityQueueLimitedSortedArrayListCopyConstructorTest();
+        void test() override;
     };
 
     /// <summary>
@@ -305,6 +353,31 @@ namespace tests
     };
 
     //...............................................................................koniec heap
+
+
+    class TimePQTLPush
+        : public SimpleTest
+    {
+    public:
+        TimePQTLPush();
+        void test() override;
+    };
+
+    class TimePQTLPop
+        : public SimpleTest
+    {
+    public:
+        TimePQTLPop();
+        void test() override;
+    };
+
+    class TimePQTLPeek
+        : public SimpleTest
+    {
+    public:
+        TimePQTLPeek();
+        void test() override;
+    };
 
     /// <summary>
     /// Zahrna v sebe vsetky testy, ktore testuju prioritny front.
