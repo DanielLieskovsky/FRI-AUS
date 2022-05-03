@@ -130,15 +130,15 @@ namespace structures
 	template<typename T>
 	void PriorityQueueTwoLists<T>::push(int priority, const T& data)
 	{
-		PriorityQueueItem<T>* item = shortList_->pushAndRemove(priority, data);
+		/*PriorityQueueItem<T>* item = shortList_->pushAndRemove(priority, data);
 		if (item != nullptr) {
 			longList_->add(item);
-		}
+		}*/
 
-		/*if (longList_->size() == 0 || shortList_->minPriority() > priority)
+		if (longList_->size() == 0 || shortList_->minPriority() > priority)
 		{
-			auto odstraneny = shortList_->pushAndRemove(priority, data);
-			if (odstraneny == nullptr)
+			PriorityQueueItem<T>* odstraneny = shortList_->pushAndRemove(priority, data);
+			if (odstraneny != nullptr)
 			{
 				longList_->add(odstraneny);
 			}
@@ -146,7 +146,7 @@ namespace structures
 		else
 		{
 			longList_->add(new PriorityQueueItem<T>(priority, data));
-		}*/
+		}
 	}
 
 	template<typename T>
@@ -156,7 +156,8 @@ namespace structures
 			throw std::logic_error("List je prazdny");
 		} 
 		
-		T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
+		//T pomocna = (dynamic_cast<PriorityQueueSortedArrayList<T>*>(shortList_))->pop();
+		T pomocna = shortList_->pop();
 
 		if (shortList_->PriorityQueueList<T>::size() == 0 && longList_->size() != 0) {
 
