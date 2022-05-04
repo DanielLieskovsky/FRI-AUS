@@ -352,6 +352,30 @@ namespace tests
         void test() override;
     };
 
+    class TimeHeapPush
+        : public SimpleTest
+    {
+    public:
+        TimeHeapPush();
+        void test() override;
+    };
+
+    class TimeHeapPop
+        : public SimpleTest
+    {
+    public:
+        TimeHeapPop();
+        void test() override;
+    };
+
+    class TimeHeapPeek
+        : public SimpleTest
+    {
+    public:
+        TimeHeapPeek();
+        void test() override;
+    };
+
     //...............................................................................koniec heap
 
 
