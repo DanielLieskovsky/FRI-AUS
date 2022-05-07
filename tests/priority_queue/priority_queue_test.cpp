@@ -741,105 +741,33 @@ namespace tests
         srand(time(NULL));
         int priorita = 0;
         int data = 0;
-       
-        structures::PriorityQueueTwoLists<int>* pqtlTest = new structures::PriorityQueueTwoLists<int>();
-        structures::PriorityQueueTwoLists<int>* pqtlTest1 = new structures::PriorityQueueTwoLists<int>(10);
-        structures::PriorityQueueTwoLists<int>* pqtlTest2 = new structures::PriorityQueueTwoLists<int>((int)sqrt(200));
-        structures::PriorityQueueTwoLists<int>* pqtlTest3 = new structures::PriorityQueueTwoLists<int>((int)sqrt(300));
-        structures::PriorityQueueTwoLists<int>* pqtlTest4 = new structures::PriorityQueueTwoLists<int>((int)sqrt(400));
+        DurationTime cas;
 
-        for (int j = 0; j < 100; j++)
+        for (int i = 1; i < 10000; i += 10)
         {
-            priorita = rand() % 100;
-            data = rand() % 100;
+            structures::PriorityQueueTwoLists<int>* pqtlTest = new structures::PriorityQueueTwoLists<int>((int)sqrt(i));
 
-            pqtlTest1->push(priorita, data);
+            for (int j = 0; j < i; j++)
+            {
+                data = rand() % 100;
+                priorita = rand() % i;
+                pqtlTest->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                data = rand() % 100;
+                priorita = i + k;
+                SimpleTest::startStopwatch();
+                pqtlTest->push(priorita, data);
+                SimpleTest::stopStopwatch();
+                cas += SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Push");
+            delete pqtlTest;
+            cas = (DurationTime)0;
         }
-
-        for (int j = 0; j < 200; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            pqtlTest2->push(priorita, data);
-        }
-
-        for (int j = 0; j < 300; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            pqtlTest3->push(priorita, data);
-        }
-
-        for (int j = 0; j < 400; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            pqtlTest4->push(priorita, data);
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            pqtlTest->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            pqtlTest1->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 1");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            pqtlTest2->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 2");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            pqtlTest3->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 3");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            pqtlTest4->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 4");
-        }
-
-        delete pqtlTest;
-        delete pqtlTest1;
-        delete pqtlTest2;
-        delete pqtlTest3;
-        delete pqtlTest4;
     }
 
 
@@ -854,60 +782,24 @@ namespace tests
         int priorita = 0;
         int data = 0;
 
-        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>((int)sqrt(100));
-        structures::PriorityQueueTwoLists<int>* twoList2 = new structures::PriorityQueueTwoLists<int>((int)sqrt(130));
-        structures::PriorityQueueTwoLists<int>* twoList3 = new structures::PriorityQueueTwoLists<int>((int)sqrt(160));
+        structures::PriorityQueueTwoLists<int>* twoList1 = new structures::PriorityQueueTwoLists<int>((int)sqrt(10000));
 
-        for (int j = 0; j < 1000; j++)
+        for (int j = 0; j < 10000; j++)
         {
-            priorita = rand() % 1000;
-            data = rand() % 1000;
+            priorita = rand() % 10000;
+            data = rand() % 10000;
 
             twoList1->push(priorita, data);
         }
 
-        for (int j = 0; j < 1000; j++)
-        {
-            priorita = rand() % 1000;
-            data = rand() % 1000;
-
-            twoList2->push(priorita, data);
-        }
-
-        for (int j = 0; j < 1000; j++)
-        {
-            priorita = rand() % 1000;
-            data = rand() % 1000;
-
-            twoList3->push(priorita, data);
-        }
-
-        for (int k = 0; k < 100; k++)
+        for (int k = 0; k < 1000; k++)
         {
             SimpleTest::startStopwatch();
             twoList1->pop();
             SimpleTest::stopStopwatch(); 
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Pop 1");
+            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Pop");
         }
 
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            twoList2->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Pop 2");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            twoList3->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Pop 3");
-        }
-
-        delete twoList3;
-        delete twoList2;
         delete twoList1;
     }
 
@@ -1259,106 +1151,35 @@ namespace tests
         srand(time(NULL));
         int priorita = 0;
         int data = 0;
-        
-        structures::Heap<int>* heap = new structures::Heap<int>();
-        structures::Heap<int>* heap1 = new structures::Heap<int>();
-        structures::Heap<int>* heap2 = new structures::Heap<int>();
-        structures::Heap<int>* heap3 = new structures::Heap<int>();
-        structures::Heap<int>* heap4 = new structures::Heap<int>();
+        DurationTime cas;
 
-        for (int j = 0; j < 100; j++)
+        for (int i = 1; i < 10000; i += 10)
         {
-            priorita = rand() % 100;
-            data = rand() % 100;
+            structures::Heap<int>* heapTest = new structures::Heap<int>();
 
-            heap1->push(priorita, data);
+            for (int j = 0; j < i; j++)
+            {
+                data = rand() % 100;
+                priorita = rand() % i;
+                heapTest->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                data = rand() % 100;
+                priorita = 0 - k;
+                SimpleTest::startStopwatch();
+                heapTest->push(priorita, data);
+                SimpleTest::stopStopwatch();
+                cas += SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Push");
+            delete heapTest;
+            cas = (DurationTime)0;
         }
-
-        for (int j = 0; j < 200; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap2->push(priorita, data);
-        }
-
-        for (int j = 0; j < 300; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap3->push(priorita, data);
-        }
-
-        for (int j = 0; j < 400; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap4->push(priorita, data);
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            heap->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            heap1->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 1");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            heap2->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 2");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            heap3->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 3");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            SimpleTest::startStopwatch();
-            heap4->push(priorita, data);
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 4");
-        }
-           
-        delete heap;
-        delete heap1;
-        delete heap2;
-        delete heap3;
-        delete heap4;
     }
+
 
     TimeHeapPop::TimeHeapPop()
         : SimpleTest("Casova zlozitost Pop pre Heap")
@@ -1370,98 +1191,31 @@ namespace tests
         srand(time(NULL));
         int priorita = 0;
         int data = 0;
+        DurationTime cas;
 
-        structures::Heap<int>* heap = new structures::Heap<int>();
-        structures::Heap<int>* heap1 = new structures::Heap<int>();
-        structures::Heap<int>* heap2 = new structures::Heap<int>();
-        structures::Heap<int>* heap3 = new structures::Heap<int>();
-        structures::Heap<int>* heap4 = new structures::Heap<int>();
-
-        for (int j = 0; j < 150; j++)
+        for (int i = 101; i < 10000; i += 10)
         {
-            priorita = rand() % 100;
-            data = rand() % 100;
+            structures::Heap<int>* heapTest = new structures::Heap<int>();
 
-            heap->push(priorita, data);
+            for (int j = 0; j < i; j++)
+            {
+                data = rand() % 100;
+                priorita = rand() % i;
+                heapTest->push(priorita, data);
+            }
+
+            for (int k = 0; k < 100; k++)
+            {
+                SimpleTest::startStopwatch();
+                heapTest->pop();
+                SimpleTest::stopStopwatch();
+                cas += SimpleTest::getElapsedTime();
+            }
+            cas = cas / 100;
+            structures::Logger::getInstance().logDuration(i, cas, "Pop");
+            delete heapTest;
+            cas = (DurationTime)0;
         }
-
-        for (int j = 0; j < 300; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap1->push(priorita, data);
-        }
-
-        for (int j = 0; j < 450; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap2->push(priorita, data);
-        }
-
-        for (int j = 0; j < 600; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap3->push(priorita, data);
-        }
-
-        for (int j = 0; j < 750; j++)
-        {
-            priorita = rand() % 100;
-            data = rand() % 100;
-
-            heap4->push(priorita, data);
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            heap->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            heap1->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 1");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            heap2->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 2");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            heap3->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 3");
-        }
-
-        for (int k = 0; k < 100; k++)
-        {
-            SimpleTest::startStopwatch();
-            heap4->pop();
-            SimpleTest::stopStopwatch();
-            structures::Logger::getInstance().logDuration(k, SimpleTest::getElapsedTime(), "Push 4");
-        }
-
-        delete heap;
-        delete heap1;
-        delete heap2;
-        delete heap3;
-        delete heap4;
     }
 
     TimeHeapPeek::TimeHeapPeek()
