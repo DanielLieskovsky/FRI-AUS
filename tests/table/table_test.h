@@ -149,4 +149,85 @@ namespace tests
 	public:
 		TableTestOverall();
 	};
+
+	class BSTConstructorTest
+		: public SimpleTest
+	{
+	public:
+		BSTConstructorTest();
+		void test() override;
+	};
+
+	class BSTCopyConstrucTest
+		: public SimpleTest
+	{
+	public:
+		BSTCopyConstrucTest();
+		void test() override;
+	};
+
+
+	class BSTSizeTest
+		: public SimpleTest
+	{
+	public:
+		BSTSizeTest();
+		void test() override;
+	};
+
+	class BSTAssignTest
+		: public SimpleTest
+	{
+	public:
+		BSTAssignTest();
+		void test() override;
+	};
+
+	class BSTEqualsTest
+		: public SimpleTest
+	{
+	public:
+		BSTEqualsTest();
+		void test() override;
+	};
+
+	class BSTFindTest
+		: public SimpleTest
+	{
+	public:
+		BSTFindTest();
+		void test() override;
+	};
+
+	class BSTInsertTest
+		: public SimpleTest
+	{
+	public:
+		BSTInsertTest();
+		void test() override;
+	};
+
+	class BSTTestRemove
+		: public SimpleTest
+	{
+	public:
+		BSTTestRemove();
+		void test() override;
+	};
+
+	class BSTTryFindTest
+		: public SimpleTest
+	{
+	public:
+		BSTTryFindTest();
+		void test() override;
+	};
+
+	class BSTContainsKeyTest
+		: public SimpleTest
+	{
+	public:
+		BSTContainsKeyTest();
+		void test() override;
+	};
 }

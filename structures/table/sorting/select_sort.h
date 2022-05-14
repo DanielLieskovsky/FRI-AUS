@@ -5,7 +5,6 @@
 
 namespace structures
 {
-
 	/// <summary> Triedenie Select sort. </summary>
 	/// <typeparam name = "K"> Kluc prvkov v tabulke. </typepram>
 	/// <typeparam name = "T"> Typ dat ukladanych v tabulke. </typepram>
@@ -21,7 +20,21 @@ namespace structures
 	template<typename K, typename T>
 	inline void SelectSort<K, T>::sort(UnsortedSequenceTable<K, T>& table)
 	{
-		throw std::logic_error("Not implemented yet!");
+		int indexMinimalneho = 0;
+
+		for (int i = 0; i <= table.size() - 2; i++)
+		{
+			indexMinimalneho = i;
+
+			for (int j = i + 1; j <= table.size() - 1; j++)
+			{
+				if (table.getItemAtIndex(j).getKey() < table.getItemAtIndex(min).getKey())
+				{
+					indexMinimalneho = j;
+				}
+			}
+			table.swap(i, min);
+		}
 	}
 
 }

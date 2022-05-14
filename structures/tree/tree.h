@@ -256,7 +256,8 @@ namespace structures
 		{
 			auto syn = getSon(i);
 			if (syn != nullptr) {
-				result = this->replaceSon(syn->deepCopy(), i);
+				//result = this->replaceSon(syn->deepCopy(), i);
+				result->replaceSon(syn->deepCopy(), i);
 				Pss++;
 			}
 		}

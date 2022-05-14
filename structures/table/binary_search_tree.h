@@ -125,21 +125,44 @@ namespace structures
 	template<typename K, typename T>
 	inline BinarySearchTree<K, T>::~BinarySearchTree()
 	{
-		//TODO 10: BinarySearchTree
+		clear();
+		delete binaryTree_;
+		binaryTree_ = nullptr;
 	}
 
 	template<typename K, typename T>
 	inline size_t BinarySearchTree<K, T>::size()
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::size: Not implemented yet.");
+		/*throw std::runtime_error("BinarySearchTree<K, T>::size: Not implemented yet.");*/
+
+		return size_;
 	}
 
 	template<typename K, typename T>
 	inline Structure& BinarySearchTree<K, T>::assign(Structure& other)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::assign: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::assign: Not implemented yet.");
+
+		if (this != &other)
+		{
+			BinarySearchTree<K, T>& otherBST = dynamic_cast<BinarySearchTree<K, T>&>(other);
+			clear();
+
+			auto iteratorB = new Tree<TableItem<K, T>*>::PreOrderTreeIterator(otherBST.binaryTree_->getRoot());
+			auto iteratorE = new Tree<TableItem<K, T>*>::PreOrderTreeIterator(nullptr);
+
+			while (*(iteratorB) != *(iteratorE))
+			{
+				TableItem<K, T>* item = *(*iteratorB);
+				insert(item->getKey(), item->accessData());
+				++* (iteratorB);
+			}
+			delete iteratorB;
+			delete iteratorE;
+		}
+		return *this;
 	}
 
 	template<typename K, typename T>
@@ -152,77 +175,319 @@ namespace structures
 	inline T& BinarySearchTree<K, T>::find(const K& key)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::find: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::find: Not implemented yet.");
+		bool found = false;
+		auto node = findBSTNode(key, found);
+		if (found)
+		{
+			return node->accessData()->accessData();
+		}
+		else
+		{
+			throw std::logic_error("Chyba");
+		}
 	}
 
 	template<typename K, typename T>
 	inline void BinarySearchTree<K, T>::insert(const K& key, const T& data)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::insert: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::insert: Not implemented yet.");
+
+		TableItem<K, T>* item = new TableItem<K, T>(key, data);
+		BSTTreeNode* node = new BSTTreeNode(item);
+
+		if (!tryToInsertNode(node))
+		{
+			delete item;
+			delete node;
+			throw std::logic_error("Key uz existuje");
+		}
 	}
 
 	template<typename K, typename T>
 	inline T BinarySearchTree<K, T>::remove(const K& key)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::remove: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::remove: Not implemented yet.");
+
+		bool found = false;
+
+		BSTTreeNode* hladany = this->findBSTNode(key, found);
+
+		if (found == true)
+		{
+			this->extractNode(hladany);
+			auto data = hladany->accessData()->accessData();
+			delete hladany->accessData();
+			delete hladany;
+			size_--;
+			return data;
+		} 
+		else
+		{
+			throw std::logic_error("Neexistujuci prvok");
+		}
 	}
 
 	template<typename K, typename T>
 	inline bool BinarySearchTree<K, T>::tryFind(const K& key, T& data)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::tryFind: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::tryFind: Not implemented yet.");
+
+		bool found = false;
+		auto node = findBSTNode(key, found);
+		if (found)
+		{
+			data =  node->accessData()->accessData();
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	template<typename K, typename T>
 	inline bool BinarySearchTree<K, T>::containsKey(const K& key)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::containsKey: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::containsKey: Not implemented yet.");
+
+		bool found = false;
+		findBSTNode(key, found);
+		return found;
 	}
 
 	template<typename K, typename T>
 	inline void BinarySearchTree<K, T>::clear()
 	{
-		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::clear: Not implemented yet.");
+		////TODO 10: BinarySearchTree
+		//throw std::runtime_error("BinarySearchTree<K, T>::clear: Not implemented yet.");
+
+		for (auto item : *binaryTree_)
+		{
+			delete item;
+		}
+		
+		binaryTree_->clear();
+		size_ = 0;
 	}
 
 	template<typename K, typename T>
 	inline Iterator<TableItem<K, T>*>* BinarySearchTree<K, T>::getBeginIterator()
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::getBeginIterator: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::getBeginIterator: Not implemented yet.");
+
+		return new BinaryTree<TableItem<K, T>*>::InOrderTreeIterator(binaryTree_->getRoot());
 	}
 
 	template<typename K, typename T>
 	inline Iterator<TableItem<K, T>*>* BinarySearchTree<K, T>::getEndIterator()
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::getEndIterator: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::getEndIterator: Not implemented yet.");
+
+		return new BinaryTree<TableItem<K, T>*>::InOrderTreeIterator(nullptr);
 	}
 
 	template<typename K, typename T>
 	inline typename BinarySearchTree<K, T>::BSTTreeNode* BinarySearchTree<K, T>::findBSTNode(K key, bool& found)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::findBSTNode: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::findBSTNode: Not implemented yet.");
+
+		found = false;
+		BSTTreeNode* poslednyVrchol = dynamic_cast<BSTTreeNode*>(binaryTree_->getRoot());
+		if (binaryTree_->getRoot() == nullptr) //poslednyVrchol ==nullptr
+		{
+			return nullptr;
+		}
+		else
+		{
+			while (poslednyVrchol->accessData()->getKey() != key)
+			{
+				if (poslednyVrchol->accessData()->getKey() > key)
+				{
+					if (poslednyVrchol->hasLeftSon())
+					{
+						poslednyVrchol = poslednyVrchol->getLeftSon();
+					}
+					else
+					{
+						return poslednyVrchol;
+					}
+				}
+				else
+				{
+					if (poslednyVrchol->hasRightSon())
+					{
+						poslednyVrchol = poslednyVrchol->getRightSon();
+					}
+					else
+					{
+						return poslednyVrchol;
+					}
+				}
+
+			}
+			found = true;
+			return poslednyVrchol;
+		}
 	}
 
 	template<typename K, typename T>
 	inline bool BinarySearchTree<K, T>::tryToInsertNode(BSTTreeNode* node)
 	{
 		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::tryToInsertNode: Not implemented yet.");
+		//throw std::runtime_error("BinarySearchTree<K, T>::tryToInsertNode: Not implemented yet.");
+
+		bool found = false;
+		auto parent = findBSTNode(node->accessData()->getKey(), found);
+
+		if (!found)
+		{
+			if (parent == nullptr)
+			{
+				binaryTree_->replaceRoot(node);
+			}
+			else if (node->accessData()->getKey() < parent->accessData()->getKey())
+			{
+				parent->setLeftSon(node);
+			}
+			else
+			{
+				parent->setRightSon(node);
+			}
+			size_++;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	template<typename K, typename T>
 	inline void BinarySearchTree<K, T>::extractNode(BSTTreeNode* node)
 	{
-		//TODO 10: BinarySearchTree
-		throw std::runtime_error("BinarySearchTree<K, T>::extractNode: Not implemented yet.");
+		////TODO 10: BinarySearchTree
+		//throw std::runtime_error("BinarySearchTree<K, T>::extractNode: Not implemented yet.");
+
+		//nema ani 1 syna
+		if (node->hasLeftSon() == false && node->hasRightSon() == false)
+		{
+			BSTTreeNode* otec = node->getParent();
+			bool jeLavy = false;
+
+			if (node->degree() > 0) {
+				if (node->isLeftSon())
+				{
+					jeLavy = true;
+				}
+			}
+
+			if (jeLavy && otec != nullptr)
+			{
+				otec->changeLeftSon(nullptr);
+			}
+			else if (!jeLavy && otec != nullptr)
+			{
+				otec->changeRightSon(nullptr);
+			}
+			else if (node->degree() == 0)
+			{
+				binaryTree_->replaceRoot(nullptr);
+			}
+		}
+		//ma len laveho syna
+		else if (node->hasLeftSon() && !node->hasRightSon())
+		{
+			BSTTreeNode* otec = node->getParent();
+			bool jeLavy = false;
+
+			if (node->isLeftSon())
+			{
+				jeLavy = true;
+			}
+
+			if (jeLavy && otec != nullptr)
+			{
+				//v node nastavil na nullptr syna a tomu synovi nastavil nullptr
+				otec->changeLeftSon(node->changeLeftSon(nullptr));
+			}
+			else if (!jeLavy && otec != nullptr)
+			{
+				otec->changeRightSon(node->changeLeftSon(nullptr));
+			}
+			else if (otec == nullptr)
+			{
+				binaryTree_->replaceRoot(node->changeLeftSon(nullptr));
+			}
+		}
+		//ma len praveho
+		else if (!node->hasLeftSon() && node->hasRightSon())
+		{
+			BSTTreeNode* otec = node->getParent();
+			bool jeLavy = false;
+
+			if (node->isLeftSon())
+			{
+				jeLavy = true;
+			}
+
+			if (jeLavy && otec != nullptr)
+			{
+				otec->changeLeftSon(node->changeRightSon(nullptr));
+			}
+			else if (!jeLavy && otec != nullptr)
+			{
+				otec->changeRightSon(node->changeRightSon(nullptr));
+			}
+			else if (otec == nullptr)
+			{
+				binaryTree_->replaceRoot(node->changeRightSon(nullptr));
+			}
+		}
+		//ma oboch
+		else if (node->hasLeftSon() && node->hasRightSon())
+		{
+			BSTTreeNode* pom = node;
+			BSTTreeNode* otec = node->getParent();
+
+			pom = pom->getRightSon();
+
+			while (pom->hasLeftSon())
+			{
+				pom = pom->getLeftSon();
+			}
+
+			this->extractNode(pom);
+
+			//ak nie je koren odstranovany
+			if (otec != nullptr) {
+				pom->changeLeftSon(node->changeLeftSon(nullptr));
+				pom->changeRightSon(node->changeRightSon(nullptr));
+
+				if (node->isLeftSon()) {
+					node->getParent()->changeLeftSon(pom);
+				}
+				else
+				{
+					node->getParent()->changeRightSon(pom);
+				}
+			}
+			//odstranovany koren s viacerymi urovanmi
+			else if (node->getParent() == nullptr)
+			{
+				pom->changeLeftSon(node->changeLeftSon(nullptr));
+				pom->changeRightSon(node->changeRightSon(nullptr));
+
+				binaryTree_->replaceRoot(pom);
+			}
+		}
 	}
 
 }

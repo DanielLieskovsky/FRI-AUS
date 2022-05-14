@@ -642,17 +642,17 @@ namespace tests
         int pocitadloPop = 0;
         int pocitadloPeek = 0;
        
-        /*int maxPush = 35000;
+        int maxPush = 35000;
         int maxPop = 35000;
-        int maxPeek = 30000;*/
+        int maxPeek = 30000;
 
-        //int maxPush = 50000;
-        //int maxPop = 30000;
-        //int maxPeek = 20000;
+       /* int maxPush = 50000;
+        int maxPop = 30000;
+        int maxPeek = 20000;*/
 
-        int maxPush = 70000;
+        /*int maxPush = 70000;
         int maxPop = 25000;
-        int maxPeek = 5000;
+        int maxPeek = 5000;*/
 
         int operacia = 0;
         int priorita = 0;
@@ -1056,7 +1056,7 @@ namespace tests
         int maxPop = 35000;
         int maxPeek = 30000;*/
 
-        /*int maxPush = 50000;
+       /* int maxPush = 50000;
         int maxPop = 30000;
         int maxPeek = 20000;*/
 

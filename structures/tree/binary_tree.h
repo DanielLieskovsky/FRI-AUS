@@ -147,7 +147,7 @@ namespace structures
 	inline BinaryTreeNode<T>* BinaryTreeNode<T>::getParent()
 	{
 		//TODO 07: BinaryTreeNode<T>
-		return dynamic_cast<BinaryTreeNode<T>*>(TreeNode<T>::getParrent());
+		return dynamic_cast<BinaryTreeNode<T>*>(TreeNode<T>::getParent());
 	}
 
 	template<typename T>
