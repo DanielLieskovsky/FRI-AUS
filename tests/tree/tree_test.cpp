@@ -45,6 +45,7 @@ namespace tests
 		ComplexTest("MultiWayTree")
 	{
 		addTest(new MultiWayTreeTestInterface());
+		addTest(new TestConstructMWT());
 	}
 
 	KWayTreeTestOverall::KWayTreeTestOverall() :
@@ -67,5 +68,28 @@ namespace tests
 		addTest(new BinaryTreeTestOverall());
 	}
 
+
+	TestConstructMWT::TestConstructMWT() 
+		: SimpleTest("Test Construct MWT")
+	{
+	}
+
+	void TestConstructMWT::test()
+	{
+		structures::MultiWayTree<int>* myMWT = new structures::MultiWayTree<int>();
+		structures::MultiWayTreeNode<int>* myNode = new structures::MultiWayTreeNode<int>(5);
+
+		myMWT->replaceRoot(myNode);
+
+		myMWT->getRoot()->insertSon(new structures::MultiWayTreeNode<int>(1), 0);
+
+		myMWT->getRoot()->getSon(0)->insertSon(new structures::MultiWayTreeNode<int>(2), 0);
+
+		SimpleTest::assertTrue(myMWT->getRoot()->getSon(0)->accessData() == 1, "1==1 son");
+
+		SimpleTest::assertTrue(myMWT->getRoot()->degree() == 1, "1==1 degree");
+
+		delete myMWT;	
+	}
 
 }

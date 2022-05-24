@@ -382,7 +382,7 @@ namespace structures
 			BSTTreeNode* otec = node->getParent();
 			bool jeLavy = false;
 
-			if (node->degree() > 0) {
+			if (otec != nullptr) {
 				if (node->isLeftSon())
 				{
 					jeLavy = true;
@@ -408,9 +408,11 @@ namespace structures
 			BSTTreeNode* otec = node->getParent();
 			bool jeLavy = false;
 
-			if (node->isLeftSon())
-			{
-				jeLavy = true;
+			if (otec != nullptr) {
+				if (node->isLeftSon())
+				{
+					jeLavy = true;
+				}
 			}
 
 			if (jeLavy && otec != nullptr)
@@ -433,9 +435,11 @@ namespace structures
 			BSTTreeNode* otec = node->getParent();
 			bool jeLavy = false;
 
-			if (node->isLeftSon())
-			{
-				jeLavy = true;
+			if (otec != nullptr) {
+				if (node->isLeftSon())
+				{
+					jeLavy = true;
+				}
 			}
 
 			if (jeLavy && otec != nullptr)

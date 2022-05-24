@@ -230,4 +230,84 @@ namespace tests
 		BSTContainsKeyTest();
 		void test() override;
 	};
+
+	class SSTConstructTest
+		: public SimpleTest
+	{
+	public:
+		SSTConstructTest();
+		void test() override;
+	};
+
+	class SSTCopyConstructTest
+		: public SimpleTest
+	{
+	public:
+		SSTCopyConstructTest();
+		void test() override;
+	};
+
+	class SSTAssignTest
+		: public SimpleTest
+	{
+	public:
+		SSTAssignTest();
+		void test() override;
+	};
+
+	class SSTEqualsTest
+		: public SimpleTest
+	{
+	public:
+		SSTEqualsTest();
+		void test() override;
+	};
+
+	class SSTInsertTest
+		: public SimpleTest
+	{
+	public:
+		SSTInsertTest();
+		void test() override;
+	};
+
+	class BSTScenarTest
+		: public SimpleTest
+	{
+	public:
+		BSTScenarTest();
+		void test() override;
+	};
+
+	class SSTScenarTest
+		: public SimpleTest
+	{
+	public:
+		SSTScenarTest();
+		void test() override;
+	};
+
+	class InsertCasovaZlozitost
+		: public SimpleTest
+	{
+	public:
+		InsertCasovaZlozitost();
+		void test() override;
+	};
+
+	class RemoveCasovaZlozitost
+		: public SimpleTest
+	{
+	public:
+		RemoveCasovaZlozitost();
+		void test() override;
+	};
+
+	class TryFindCasovaZlozitost
+		: public SimpleTest
+	{
+	public:
+		TryFindCasovaZlozitost();
+		void test() override;
+	};
 }

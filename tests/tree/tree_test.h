@@ -60,6 +60,14 @@ namespace tests
 		MultiWayTreeTestOverall();
 	};
 
+	class TestConstructMWT :
+		public SimpleTest
+	{
+	public:
+		TestConstructMWT();
+		void test() override;
+	};
+
 	/// <summary>
 	/// Zahrna v sebe vsetky testy, ktore testuju dany strom.
 	/// </summary>

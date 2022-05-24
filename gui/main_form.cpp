@@ -50,7 +50,7 @@ void main(array<String^>^)
 	tests.emplace_back(new tests::PriorityQueueTestOverall());
 
 	// TODO 07: Tree
-	//tests.emplace_back(new tests::TreeTestOverall());
+	tests.emplace_back(new tests::TreeTestOverall());
 
 	// TODO 08: Table
 	tests.emplace_back(new tests::TableTestOverall());
@@ -62,7 +62,7 @@ void main(array<String^>^)
 	// Odoberatel logu, ktory preposiela spravy do GUI.
 	//gui::GuiLogConsumer* guiLogConsumer = new gui::GuiLogConsumer(%form);
 
-	csv_log_consumer* csvLogConsumer = new csv_log_consumer("logSkusobnyScenarA_PQTL.csv");
+	csv_log_consumer* csvLogConsumer = new csv_log_consumer("logTryFind_SST.csv");
 
 	//structures::Logger::getInstance().registerConsumer(guiLogConsumer);
 	structures::Logger::getInstance().registerConsumer(csvLogConsumer);

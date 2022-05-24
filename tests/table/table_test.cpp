@@ -63,16 +63,17 @@ namespace tests
 		ComplexTest("BinarySearchTree")
 	{
 		addTest(new BinarySearchTreeTestInterface());
-		addTest(new BSTTestRemove());
 		addTest(new BSTConstructorTest());
 		addTest(new BSTCopyConstrucTest());
 		addTest(new BSTSizeTest());
 		addTest(new BSTAssignTest());
 		addTest(new BSTEqualsTest());
+		addTest(new BSTTestRemove());
 		addTest(new BSTFindTest());
 		addTest(new BSTInsertTest());
 		addTest(new BSTTryFindTest());
 		addTest(new BSTContainsKeyTest());
+		addTest(new BSTScenarTest());
 	}
 
 	BSTConstructorTest::BSTConstructorTest()
@@ -145,15 +146,18 @@ namespace tests
 		myBST->insert(128, 'A');
 		SimpleTest::assertFalse(myBST->size() == 0, "Velkost nie je 0");
 		SimpleTest::assertTrue(myBST->size() == 1, "Velkost sa zvacsila po pridani 128/A");
+
 		myBST->insert(213, 'C');
 		myBST->insert(125, 'B');
 		SimpleTest::assertFalse(myBST->size() == 1, "Velkost nie je 1");
 		SimpleTest::assertTrue(myBST->size() == 3, "Velkost sa zvacsila po pridani 2 dalsich");
+
 		myBST->insert(122, 'E');
 		myBST->insert(178, 'D');
 		myBST->insert(241, 'G');
 		SimpleTest::assertFalse(myBST->size() == 3, "Velkost nie je 3");
 		SimpleTest::assertTrue(myBST->size() == 6, "Velkost sa zvacsila po pridani 3 dalsich");
+
 		myBST->insert(143, 'F');
 		myBST->insert(222, 'I');
 		myBST->insert(259, 'H');
@@ -164,6 +168,8 @@ namespace tests
 		myBST->remove(213);
 		SimpleTest::assertFalse(myBST->size() == 10, "Velkost nie je 10");
 		SimpleTest::assertTrue(myBST->size() == 9, "Velkost sa zmensila po odbrati 1 prvku");
+		
+
 		myBST->remove(178);
 		myBST->remove(222);
 		SimpleTest::assertFalse(myBST->size() == 8, "Velkost nie je 9");
@@ -313,24 +319,75 @@ namespace tests
 
 	void BSTTestRemove::test()
 	{
+		//odstranovanie korena
 		structures::BinarySearchTree<int, int>* myBST = new structures::BinarySearchTree<int, int>();
 
 		myBST->insert(2, 2);
+
+		SimpleTest::assertTrue(myBST->remove(2) == 2, "odstranenie korenu bez ziadnych dalsich prvkov prebehol uspesne");
+
 		myBST->insert(5, 5);
 		myBST->insert(9, 9);
 		myBST->insert(1, 1);
-		myBST->insert(7, 7);
-		myBST->insert(4, 4);
-		myBST->insert(3, 3);
-		myBST->insert(6, 6);
 
-		SimpleTest::assertTrue(myBST->remove(4) == 4, "removed 4");
-		SimpleTest::assertTrue(myBST->remove(2) == 2, "removed 2");
-		SimpleTest::assertTrue(myBST->remove(1) == 1, "removed 1");
-		SimpleTest::assertTrue(myBST->remove(5) == 5, "removed 5");
-		SimpleTest::assertTrue(myBST->remove(7) == 7, "removed 7");
+		SimpleTest::assertTrue(myBST->remove(5) == 5, "odstranenie korenu s 2 dalsimi prvkami prebehlo uspesne");
 
 		delete myBST;
+
+		structures::BinarySearchTree<int, int>* myBST1 = new structures::BinarySearchTree<int, int>();
+
+		myBST1->insert(7, 7);
+		myBST1->insert(4, 4);
+
+		SimpleTest::assertTrue(myBST1->remove(7) == 7, "odstranenie korenu s 1 dalsim (lavym) prvkom prebehlo uspesne");
+
+		delete myBST1;
+
+		structures::BinarySearchTree<int, int>* myBST2 = new structures::BinarySearchTree<int, int>();
+
+		myBST2->insert(7, 7);
+		myBST2->insert(9, 9);
+
+		SimpleTest::assertTrue(myBST2->remove(7) == 7, "odstranenie korenu s 1 dalsim (pravym) prvkom prebehlo uspesne");
+
+		delete myBST2;
+
+		//odstranovanie listu hlbsie v strome
+		structures::BinarySearchTree<int, int>* myBST3 = new structures::BinarySearchTree<int, int>();
+
+		myBST3->insert(7, 7);
+		myBST3->insert(9, 9);
+		myBST3->insert(4, 4);
+		myBST3->insert(2, 2);
+		myBST3->insert(3, 3);
+		myBST3->insert(8, 8);
+		myBST3->insert(11, 11);
+		myBST3->insert(5, 5);
+
+		SimpleTest::assertTrue(myBST3->remove(5) == 5, "odstranenie listu z lavej strany");
+		SimpleTest::assertTrue(myBST3->remove(11) == 11, "odstranenie listu z pravej strany");
+
+		delete myBST3;
+
+		//odstranovanie vo vnutri stromu
+		structures::BinarySearchTree<int, int>* myBST4 = new structures::BinarySearchTree<int, int>();
+
+		myBST4->insert(7, 7);
+		myBST4->insert(9, 9);
+		myBST4->insert(4, 4);
+		myBST4->insert(2, 2);
+		myBST4->insert(3, 3);
+		myBST4->insert(8, 8);
+		myBST4->insert(11, 11);
+		myBST4->insert(5, 5);
+		myBST4->insert(13, 13);
+
+		SimpleTest::assertTrue(myBST4->remove(9) == 9, "odstranenie vrcholu s 2 dalsimi prvkami");
+		SimpleTest::assertTrue(myBST4->remove(2) == 2, "odstranenie vrcholu s pravym");
+		SimpleTest::assertTrue(myBST4->remove(5) == 5, "odstranenie listu aby som mal 4 s lavym synom 3");
+		SimpleTest::assertTrue(myBST4->remove(4) == 4, "odstranenie vrcholu s lavym");
+
+		delete myBST4;
 	}
 
 	BSTTryFindTest::BSTTryFindTest()
@@ -393,6 +450,207 @@ namespace tests
 		ComplexTest("SortedSequenceTable")
 	{
 		addTest(new SortedSequenceTableTestInterface());
+		addTest(new SSTConstructTest());
+		addTest(new SSTCopyConstructTest());
+		addTest(new SSTAssignTest());
+		addTest(new SSTInsertTest());
+		addTest(new SSTEqualsTest());
+		addTest(new SSTScenarTest());
+		addTest(new InsertCasovaZlozitost());
+		addTest(new RemoveCasovaZlozitost());
+		addTest(new TryFindCasovaZlozitost());
+	}
+
+	SSTConstructTest::SSTConstructTest()
+		: SimpleTest("SST Constructor test")
+	{
+	}
+
+	void SSTConstructTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST = new structures::SortedSequenceTable<int, int>();
+
+		SimpleTest::assertTrue(mySST->size() == 0, "Prazdna tabulka je vytvorena");
+
+		mySST->insert(128, 'A');
+		SimpleTest::assertTrue(mySST->size() == 1, "Vlozilo do tabulky prvok 128/A");
+		mySST->insert(125, 'B');
+		mySST->insert(213, 'C');
+		mySST->insert(178, 'D');
+		mySST->insert(122, 'E');
+		mySST->insert(143, 'F');
+		mySST->insert(241, 'G');
+		mySST->insert(259, 'H');
+		mySST->insert(222, 'I');
+		mySST->insert(237, 'J');
+		SimpleTest::assertTrue(mySST->size() == 10, "Vlozilo do tabulky dalsich 9 prvkov");
+
+		delete mySST;
+	}
+
+	SSTCopyConstructTest::SSTCopyConstructTest()
+		: SimpleTest("SST CopyConstructor test")
+	{
+	}
+
+	void SSTCopyConstructTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST = new structures::SortedSequenceTable<int, int>();
+
+		SimpleTest::assertTrue(mySST->size() == 0, "Prazdna tabulka je vytvorena");
+
+		mySST->insert(128, 'A');
+		mySST->insert(125, 'B');
+		mySST->insert(213, 'C');
+		mySST->insert(178, 'D');
+		mySST->insert(122, 'E');
+		mySST->insert(143, 'F');
+		mySST->insert(241, 'G');
+		mySST->insert(259, 'H');
+		mySST->insert(222, 'I');
+		mySST->insert(237, 'J');
+
+		SimpleTest::assertTrue(mySST->size() == 10, "Tabulka bola naplnena 10 prvkami");
+
+		structures::SortedSequenceTable<int, int>* mySST1 = new structures::SortedSequenceTable<int, int>(*mySST);
+
+		SimpleTest::assertTrue(mySST1->size() == 10, "Do kopie tabulky bol uspesne vlozeny originál");
+
+		mySST->remove(222);
+
+		SimpleTest::assertTrue(mySST->size() == 9, "Odstranil sa jeden prvok z originalu");
+		SimpleTest::assertTrue(mySST1->size() == 10, "Neodstranil sa prvok z kopie");
+
+		delete mySST;
+		delete mySST1;
+	}
+
+	SSTAssignTest::SSTAssignTest()
+		: SimpleTest("SST Assign test")
+	{
+	}
+
+	void SSTAssignTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST = new structures::SortedSequenceTable<int, int>();
+
+		SimpleTest::assertTrue(mySST->size() == 0, "Prazdna tabulka je vytvorena");
+
+		mySST->insert(128, 'A');
+		mySST->insert(125, 'B');
+		mySST->insert(213, 'C');
+		mySST->insert(178, 'D');
+		mySST->insert(122, 'E');
+		mySST->insert(143, 'F');
+		mySST->insert(241, 'G');
+		mySST->insert(259, 'H');
+		mySST->insert(222, 'I');
+		mySST->insert(237, 'J');
+
+		SimpleTest::assertTrue(mySST->size() == 10, "Tabulka (original) bola naplnena 10 prvkami");
+
+		structures::SortedSequenceTable<int, int>* mySST1 = new structures::SortedSequenceTable<int, int>();
+
+		mySST1->insert(128, 'A');
+		mySST1->insert(125, 'B');
+		mySST1->insert(213, 'C');
+		mySST1->insert(178, 'D');
+		mySST1->insert(122, 'E');
+
+		SimpleTest::assertTrue(mySST1->size() == 5, "Tabulka (kopia) bola naplnena 5 prvkami");
+
+		mySST1->assign(*mySST);
+
+		SimpleTest::assertTrue(mySST1->size() == 10, "Tabulka (kopia) po priradeni ma velkost originalu");
+
+		delete mySST;
+		delete mySST1;
+	}
+
+	SSTInsertTest::SSTInsertTest()
+		: SimpleTest("SST Insert test")
+	{
+	}
+
+	void SSTInsertTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST = new structures::SortedSequenceTable<int, int>();
+
+		SimpleTest::assertTrue(mySST->size() == 0, "Prazdna tabulka je vytvorena");
+
+		mySST->insert(128, 'A');
+		SimpleTest::assertTrue(mySST->size() == 1, "Tabulka sa naplnila 1 prvkom");
+		mySST->insert(125, 'B');
+		mySST->insert(213, 'C');
+		SimpleTest::assertTrue(mySST->size() == 3, "Tabulka sa naplnila dalsimi 2 prvkami");
+		mySST->insert(178, 'D');
+		mySST->insert(122, 'E');
+		mySST->insert(143, 'F');
+		SimpleTest::assertTrue(mySST->size() == 6, "Tabulka sa naplnila dalsimi 3 prvkami");
+		mySST->insert(241, 'G');
+		mySST->insert(259, 'H');
+		mySST->insert(222, 'I');
+		mySST->insert(237, 'J');
+		SimpleTest::assertTrue(mySST->size() == 10, "Tabulka sa naplnila dalsimi 4 prvkami");
+
+		delete mySST;
+	}
+
+	SSTEqualsTest::SSTEqualsTest()
+		: SimpleTest("SST Equal test")
+	{
+	}
+
+	void SSTEqualsTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST = new structures::SortedSequenceTable<int, int>();
+
+		mySST->insert(128, 'A');
+		mySST->insert(125, 'B');
+		mySST->insert(213, 'C');
+		mySST->insert(178, 'D');
+		mySST->insert(122, 'E');
+
+		SimpleTest::assertTrue(mySST->size() == 5, "Prva tabulka s velkostou 5");
+
+		structures::SortedSequenceTable<int, int>* mySST1 = new structures::SortedSequenceTable<int, int>();
+
+		mySST1->insert(128, 'A');
+		mySST1->insert(125, 'B');
+		mySST1->insert(213, 'C');
+		mySST1->insert(178, 'D');
+
+		SimpleTest::assertTrue(mySST1->size() == 4, "Druha tabulka s velkostou 4");
+
+		structures::SortedSequenceTable<int, int>* mySST2 = new structures::SortedSequenceTable<int, int>();
+
+		mySST2->insert(128, 'A');
+		mySST2->insert(125, 'B');
+		mySST2->insert(214, 'C');
+		mySST2->insert(178, 'D');
+		mySST2->insert(122, 'E');
+
+		SimpleTest::assertTrue(mySST2->size() == 5, "Tretia tabulka s velkostou 4");
+
+		structures::SortedSequenceTable<int, int>* mySST3 = new structures::SortedSequenceTable<int, int>();
+
+		mySST3->insert(128, 'A');
+		mySST3->insert(125, 'B');
+		mySST3->insert(213, 'C');
+		mySST3->insert(178, 'D');
+		mySST3->insert(122, 'E');
+
+		SimpleTest::assertTrue(mySST3->size() == 5, "Stvrta tabulka s velkostou 5");
+
+		SimpleTest::assertTrue(mySST3->equals(*mySST), "Prva so stvrtou su rovnake (aj velkost aj prvky)");
+		SimpleTest::assertFalse(mySST->equals(*mySST1), "Prva a druha nie su rovnake (rozlicna velkost)");
+		SimpleTest::assertFalse(mySST->equals(*mySST2), "Prva a tretia nie su rovnake (ine kluce)");
+
+
+		delete mySST;
+		delete mySST1;
+		delete mySST2;
+		delete mySST3;
 	}
 
 	TreapTestOverall::TreapTestOverall() :
@@ -416,5 +674,382 @@ namespace tests
 		addTest(new SortedSequenceTableTestOverall());
 		addTest(new TreapTestOverall());
 		addTest(new UnsortedSequenceTableTestOverall());
+	}
+
+	BSTScenarTest::BSTScenarTest()
+		: SimpleTest("Scenarove testy pre BST")
+	{
+	}
+
+	void BSTScenarTest::test()
+	{
+		structures::BinarySearchTree<int, int>* myBST1 = new structures::BinarySearchTree<int, int>();
+
+		srand(time(NULL));
+
+		int pocitadloInsert = 0;
+		int pocitadloRemove = 0;
+		int pocitadloTryFind = 0;
+
+		/*int maxInsert = 20000;
+		int maxRemove = 20000;
+		int maxTryFind = 60000;*/
+
+		int maxInsert = 40000;
+		int maxRemove = 40000;
+		int maxTryFind = 20000;
+
+		int operacia = 0;
+		int kluc = 0;
+		int hodnota = 0;
+
+		structures::ArrayList<int>* TabKluce = new structures::ArrayList<int>();
+
+		for (int i = 0; i < 100000; i++)
+		{
+			TabKluce->add(i + 1);
+		}
+
+		for (int i = 0; i < 100000; i++)
+		{
+			// insert = 0; remove = 1; tryfind = 2;
+			if (pocitadloInsert < maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = rand() % 3;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = (rand() % 2) + 1;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove == maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = rand() % 2;
+
+				if (operacia == 1)
+				{
+					operacia = 2;
+				}
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = rand() % 2;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove == maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = 0;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = 1;
+			}
+			else 
+			{
+				operacia = 2;
+			}
+
+			kluc = TabKluce->removeAt(rand() % TabKluce->size());
+			hodnota = rand();
+
+			if (operacia == 1 && !myBST1->containsKey(kluc))
+			{
+				myBST1->insert(kluc, hodnota);
+			}
+
+			switch (operacia)
+			{
+			case 0: 
+				SimpleTest::startStopwatch();
+				myBST1->insert(kluc, hodnota);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloInsert, SimpleTest::getElapsedTime(), "Insert");
+				pocitadloInsert++;
+				break;
+			case 1:
+				SimpleTest::startStopwatch();
+				myBST1->remove(kluc);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloRemove, SimpleTest::getElapsedTime(), "Remove");
+				pocitadloRemove++;
+				break;
+			case 2:
+				SimpleTest::startStopwatch();
+				myBST1->tryFind(kluc,hodnota);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloTryFind, SimpleTest::getElapsedTime(), "tryFind");
+				pocitadloTryFind++;
+				break;
+			default:
+				break;
+			}
+		}
+		delete myBST1;
+		delete TabKluce;
+	}
+
+	SSTScenarTest::SSTScenarTest()
+		: SimpleTest("SST Scenar test")
+	{
+	}
+
+	void SSTScenarTest::test()
+	{
+		structures::SortedSequenceTable<int, int>* mySST1 = new structures::SortedSequenceTable<int, int>();
+
+		srand(time(NULL));
+
+		int pocitadloInsert = 0;
+		int pocitadloRemove = 0;
+		int pocitadloTryFind = 0;
+
+		/*int maxInsert = 20000;
+		int maxRemove = 20000;
+		int maxTryFind = 60000;*/
+
+		int maxInsert = 40000;
+		int maxRemove = 40000;
+		int maxTryFind = 20000;
+
+		int operacia = 0;
+		int kluc = 0;
+		int hodnota = 0;
+
+		structures::ArrayList<int>* TabKluce = new structures::ArrayList<int>();
+
+		for (int i = 0; i < 100000; i++)
+		{
+			TabKluce->add(i + 1);
+		}
+
+		for (int i = 0; i < 100000; i++)
+		{
+			// insert = 0; remove = 1; tryfind = 2;
+			if (pocitadloInsert < maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = rand() % 3;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = (rand() % 2) + 1;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove == maxRemove && pocitadloTryFind < maxTryFind)
+			{
+				operacia = rand() % 2;
+
+				if (operacia == 1)
+				{
+					operacia = 2;
+				}
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = rand() % 2;
+			}
+			else if (pocitadloInsert < maxInsert && pocitadloRemove == maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = 0;
+			}
+			else if (pocitadloInsert == maxInsert && pocitadloRemove < maxRemove && pocitadloTryFind == maxTryFind)
+			{
+				operacia = 1;
+			}
+			else
+			{
+				operacia = 2;
+			}
+
+			kluc = TabKluce->removeAt(rand() % TabKluce->size());
+			hodnota = rand();
+
+			if (operacia == 1 && !mySST1->containsKey(kluc))
+			{
+				mySST1->insert(kluc, hodnota);
+			}
+
+			switch (operacia)
+			{
+			case 0:
+				SimpleTest::startStopwatch();
+				mySST1->insert(kluc, hodnota);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloInsert, SimpleTest::getElapsedTime(), "Insert");
+				pocitadloInsert++;
+				break;
+			case 1:
+				SimpleTest::startStopwatch();
+				mySST1->remove(kluc);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloRemove, SimpleTest::getElapsedTime(), "Remove");
+				pocitadloRemove++;
+				break;
+			case 2:
+				SimpleTest::startStopwatch();
+				mySST1->tryFind(kluc, hodnota);
+				SimpleTest::stopStopwatch();
+				structures::Logger::getInstance().logDuration(pocitadloTryFind, SimpleTest::getElapsedTime(), "tryFind");
+				pocitadloTryFind++;
+				break;
+			default:
+				break;
+			}
+		}
+		delete mySST1;
+		delete TabKluce;
+	}
+
+	InsertCasovaZlozitost::InsertCasovaZlozitost()
+		: SimpleTest("Casova zlozitost operacie Insert")
+	{
+	}
+
+	void InsertCasovaZlozitost::test()
+	{
+		srand(time(NULL));
+
+		int kluc = 0;
+		int hodnota = 0;
+		DurationTime cas;
+
+		for (int i = 100; i < 50101; i += 1000)
+		{
+			structures::ArrayList<int>* TabKluce = new structures::ArrayList<int>();
+			//structures::BinarySearchTree<int, int>* myStruct = new structures::BinarySearchTree<int, int>();
+
+			structures::SortedSequenceTable<int, int>* myStruct = new structures::SortedSequenceTable<int, int>();
+
+			for (int i = 0; i < 100000; i++)
+			{
+				TabKluce->add(i + 1);
+			}
+
+			for (int j = 0; j < i; j++)
+			{
+				kluc = TabKluce->removeAt(rand() % TabKluce->size());
+				hodnota = rand();
+
+				myStruct->insert(kluc, hodnota);
+			}
+
+			for (int i = 0; i < 100; i++)
+			{
+				kluc = TabKluce->removeAt(rand() % TabKluce->size());
+				hodnota = rand();
+
+				SimpleTest::startStopwatch();
+				myStruct->insert(kluc, hodnota);
+				SimpleTest::stopStopwatch();
+				cas += SimpleTest::getElapsedTime();
+			}
+			cas = cas / 100;
+			structures::Logger::getInstance().logDuration(i, cas, "Insert");
+
+			cas = (DurationTime)0;
+
+			delete myStruct;
+			delete TabKluce;
+		}
+	}
+
+	RemoveCasovaZlozitost::RemoveCasovaZlozitost()
+		: SimpleTest("Casova zlozitost operacie Remove")
+	{
+	}
+
+	void RemoveCasovaZlozitost::test()
+	{
+		srand(time(NULL));
+
+		int kluc = 0;
+		int hodnota = 0;
+		DurationTime cas;
+
+		for (int i = 100; i < 50101; i += 1000)
+		{
+			structures::ArrayList<int>* TabKluce = new structures::ArrayList<int>();
+			//structures::BinarySearchTree<int, int>* myStruct = new structures::BinarySearchTree<int, int>();
+
+			structures::SortedSequenceTable<int, int>* myStruct = new structures::SortedSequenceTable<int, int>();
+
+			for (int i = 0; i < 100000; i++)
+			{
+				TabKluce->add(i + 1);
+			}
+
+			for (int j = 0; j < i; j++)
+			{
+				kluc = TabKluce->removeAt(rand() % TabKluce->size());
+				hodnota = rand();
+
+				myStruct->insert(kluc, hodnota);
+			}
+
+			for (int i = 0; i < 100; i++)
+			{
+				kluc = TabKluce->removeAt(rand() % TabKluce->size());
+				hodnota = rand();
+				myStruct->insert(kluc, hodnota);
+
+				SimpleTest::startStopwatch();
+				myStruct->remove(kluc);
+				SimpleTest::stopStopwatch();
+				cas += SimpleTest::getElapsedTime();
+			}
+			cas = cas / 100;
+			structures::Logger::getInstance().logDuration(i, cas, "Remove");
+
+			cas = (DurationTime)0;
+
+			delete myStruct;
+			delete TabKluce;
+		}
+	}
+
+	TryFindCasovaZlozitost::TryFindCasovaZlozitost()
+		: SimpleTest("Casova zlozitost pre TryFind")
+	{
+	}
+
+	void TryFindCasovaZlozitost::test()
+	{
+		srand(time(NULL));
+
+		int kluc = 0;
+		int hodnota = 0;
+		DurationTime cas;
+
+		for (int i = 100; i < 50101; i += 1000)
+		{
+			structures::ArrayList<int>* TabKluce = new structures::ArrayList<int>();
+			//structures::BinarySearchTree<int, int>* myStruct = new structures::BinarySearchTree<int, int>();
+
+			structures::SortedSequenceTable<int, int>* myStruct = new structures::SortedSequenceTable<int, int>();
+
+			for (int i = 0; i < 100000; i++)
+			{
+				TabKluce->add(i + 1);
+			}
+
+			for (int j = 0; j < i; j++)
+			{
+				kluc = TabKluce->removeAt(rand() % TabKluce->size());
+				hodnota = rand();
+
+				myStruct->insert(kluc, hodnota);
+			}
+
+			for (int i = 0; i < 100; i++)
+			{
+				SimpleTest::startStopwatch();
+				myStruct->tryFind(500000, hodnota);
+				SimpleTest::stopStopwatch();
+				cas += SimpleTest::getElapsedTime();
+			}
+			cas = cas / 100;
+			structures::Logger::getInstance().logDuration(i, cas, "tryFind");
+
+			cas = (DurationTime)0;
+
+			delete myStruct;
+			delete TabKluce;
+		}
 	}
 }
